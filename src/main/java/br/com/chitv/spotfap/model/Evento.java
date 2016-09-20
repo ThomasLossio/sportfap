@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "EventoSequence", sequenceName = "SQ_ID_EVENTO", allocationSize = 1)
 public class Evento implements Serializable{
 	
-	
+	// essa UID será diferente em cada classe
 	private static final long serialVersionUID = -5385611801003409112L;
 
 	public Evento() {}
@@ -24,13 +24,13 @@ public class Evento implements Serializable{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EventoSequence")
 	private Long id;
 	
-    @Column(name = "LOGIN", length = 30, nullable = false)
-    private String login;
+    @Column(name = "NOMEEVENTO", length = 50, nullable = false)
+    private String nomeevento;
     
-    @Column(name = "SENHA", nullable = false)
-    private String senha;
+    @Column(name = "TIPOEVENTO", length = 30, nullable = false)
+    private String tipoevento;
 
-    @Column(name = "EMAIL", length = 50, nullable = false, unique = true)
-    private String email;
+    @Column(name = "EMAILCRIADOR", length = 50, nullable = false, unique = true)
+    private String emailcriador;
     
 }
