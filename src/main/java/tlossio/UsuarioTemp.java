@@ -13,11 +13,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name="USUARIO", schema="sportfap")
 @SequenceGenerator(name = "UsuarioSequence", sequenceName = "SQ_ID_USUARIO", allocationSize = 1)
-public class Usuario implements Serializable {
+public class UsuarioTemp implements Serializable {
 	
 	private static final long serialVersionUID = -4526057841697825870L;
 
-	public Usuario() {}
+	public UsuarioTemp() {}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "UsuarioSequence")
@@ -67,7 +67,7 @@ public class Usuario implements Serializable {
 	public void fazBesteira(){
 		String s1 = "todahora";
 		String s2 = "opa, quem foi que disse epa?";
-		String s3 = "Igor está 'vivo'";
+		String s3 = "Igor estï¿½ 'vivo'";
 		if (s2.equals("todahora")){
 			System.out.println("agora vai");
 		}
@@ -93,7 +93,7 @@ public class Usuario implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		UsuarioTemp other = (UsuarioTemp) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
