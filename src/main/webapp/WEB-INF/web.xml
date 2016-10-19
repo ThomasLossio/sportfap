@@ -44,5 +44,11 @@
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
+		
 	</servlet-mapping>
+	<!-- DEFINIMOS O THEME A SER UTILIZADO PELO PRIMEFACES -->
+  <context-param>
+    <param-name>primefaces.THEME</param-name>
+    <param-value>bootstrap</param-value>
+  </context-param>
 </web-app>
