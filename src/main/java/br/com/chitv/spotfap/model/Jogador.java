@@ -1,6 +1,7 @@
 package br.com.chitv.spotfap.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -8,6 +9,58 @@ import javax.persistence.*;
 @Table(name="jogador", schema="sportfap")
 @SequenceGenerator(name = "JogadorSequence", sequenceName = "SQ_ID_JOGADOR", allocationSize = 1)
 public class Jogador implements Serializable{
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Long getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Long numero) {
+		this.numero = numero;
+	}
+
+	public Long getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(Long semestre) {
+		this.semestre = semestre;
+	}
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	public Time getTime() {
+		return time;
+	}
+
+	public void setTime(Time time) {
+		this.time = time;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	/**
 	 * 
@@ -35,10 +88,10 @@ public class Jogador implements Serializable{
     @ManyToOne
     @JoinColumn(name= "time_id")
 	private Time time;
+    @ManyToMany(fetch = FetchType.EAGER)
+	private List<JogadorProfile> jogadorProfiles;
     
     
-    
-    
-	
+  
 
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<title>Toda Hora</title>
+</h:head>
+
+<h:body>
+<form action="${request.contextPath}/logout" method="post">
+	<input type="submit" value="Logout"/>
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>		
+</form> 
+<h:form id="form">
+	<p>
+      <b>Olá, <h:outputText value="#{request.remoteUser}"/>! </b>
+    </p>	
+	<h1>Usuários</h1>
+	<h:commandButton value="Novo Usário" action="#{usuarioController.irPaginaSalvar()}" />
+	
+	<h:dataTable id="usuarioDT" 
+			value="#{usuarioController.usuarios}" 
+			var="usuario" >
+			
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+			#{usuario.id}
+		</h:column>
+		<h:column>
+			<f:facet name="header">E-MAIL</f:facet>
+			#{usuario.email}
+		</h:column>
+		<h:column>
+			<f:facet name="header">AÇÕES</f:facet>
+			<h:commandButton action="#{usuarioController.excluir()}" value="Excluir">
+				<f:setPropertyActionListener value="#{usuario}" target="#{usuarioController.usuario}"/>
+			</h:commandButton>
+			<h:commandButton action="#{usuarioController.irPaginaAtualizar(usuario)}" value="Atualizar" process="@form"/>
+		</h:column>
+	</h:dataTable>
+	<input type="hidden" name="#{_csrf.parameterName}" value="#{_csrf.token}"/>
+</h:form>
+</h:body>
+</html>
