@@ -18,26 +18,26 @@
 			<legend>Login</legend>
 		
 			<!-- Show alerts -->
-			<h:panelGroup rendered="#{param.error != null}">  
-				<h:div class="alert alert-danger" role="alert">
+			<h:panelGroup rendered="#{param.error != null}"> 
+				<div class="alert alert-danger" role="alert">
 					Invalid username/password.
-				</h:div>
+				</div>
 			</h:panelGroup> 
 			<h:panelGroup rendered="#{param.logout != null}">
-				<h:div class="alert alert-success" role="alert">
+				<div class="alert alert-success" role="alert">
 					Logout with success!  
-				</h:div>
+				</div>
 			</h:panelGroup>
 			
 			<!-- Login fields -->
-			<h:div class="form-group">
+			<div class="form-group">
 				<label for="username">Username</label>
-				<h:input name="username" type="text" class="form-control" id="username" placeholder="Type your username" />
-			</h:div>
-			<h:div class="form-group">
+				<input name="username" type="text" class="form-control" id="username" placeholder="Type your username" />
+			</div>
+			<div class="form-group">
 				<label for="password">Password</label>
-				<h:input name="password" type="password" class="form-control" id="password" placeholder="Type your password" />
-			</h:div>
+				<input name="password" type="password" class="form-control" id="password" placeholder="Type your password" />
+			</div>
 			
 			<input type="submit" value="Login" class="btn btn-primary"/>
 				

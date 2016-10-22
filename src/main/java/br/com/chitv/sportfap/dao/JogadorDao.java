@@ -1,4 +1,4 @@
-package br.com.chitv.spotfap.dao;
+package br.com.chitv.sportfap.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import br.com.chitv.spotfap.model.Jogador;
-import br.com.chitv.spotfap.model.JogadorProfile;
+import br.com.chitv.sportfap.model.Jogador;
+import br.com.chitv.sportfap.model.JogadorProfile;
 
 
 @Named
@@ -62,8 +62,8 @@ public class JogadorDao {
 		jogadorProfile.setType("ROLE_ADMIN");
 		jogadorProfile.setJogadores(jogadores);
 		
-		List<JogadorProfile> userProfiles = new ArrayList<JogadorProfile>();
-		userProfiles.add(jogadorProfile);
+		List<JogadorProfile> jogadorProfiles = new ArrayList<JogadorProfile>();
+		jogadorProfiles.add(jogadorProfile);
 		
 	
 		

@@ -1,12 +1,12 @@
-package br.com.chitv.spotfap.model;
+package br.com.chitv.sportfap.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "USER_PROFILE", schema="spotfap")
-@SequenceGenerator(name = "JogadorProfileSequence", sequenceName = "Jogador_PROFILE_ID_SQ", initialValue = 1, allocationSize = 1, schema="spotfap")
+@Table(name = "JOGADOR_PROFILE", schema="sportfap")
+@SequenceGenerator(name = "JogadorProfileSequence", sequenceName = "Jogador_PROFILE_ID_SQ", initialValue = 1, allocationSize = 1, schema="sportfap")
 public class JogadorProfile implements Serializable {
 
 	private static final long serialVersionUID = -6327591337127181910L;
@@ -53,7 +53,7 @@ public class JogadorProfile implements Serializable {
 
 	@Override
 	public String toString() {
-		return "spotfap.UserProfile[ id=" + id + " ]";
+		return "sportfap.JogadorProfile[ id=" + id + " ]";
 	}
 
 	public List<Jogador> getJogadores() {

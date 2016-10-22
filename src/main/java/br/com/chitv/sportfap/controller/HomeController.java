@@ -1,4 +1,4 @@
-package br.com.chitv.spotfap.controller;
+package br.com.chitv.sportfap.controller;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

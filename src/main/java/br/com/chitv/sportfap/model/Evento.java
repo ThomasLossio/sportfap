@@ -1,4 +1,4 @@
-package br.com.chitv.spotfap.model;
+package br.com.chitv.sportfap.model;
 
 import java.io.Serializable;
 import java.util.List;
