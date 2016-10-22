@@ -1,4 +1,4 @@
-package br.com.chitv.spotfap.controller;
+package br.com.chitv.sportfap.controller;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,8 +9,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 
-import br.com.chitv.spotfap.dao.JogadorDao;
-import br.com.chitv.spotfap.model.Jogador;
+import br.com.chitv.sportfap.dao.JogadorDao;
+import br.com.chitv.sportfap.model.Jogador;
 
 
 @Named
@@ -61,6 +61,9 @@ public class JogadorController implements Serializable {
 		this.jogador = new Jogador();
 		return "../index";
 	}
+	public String irPaginaJogadores() {
+		return "../secured/views/admin/index.xhtml";
+	}
 
 	public String salvar() {
 		this.JogadorDao.salvar(this.jogador);
@@ -70,7 +73,7 @@ public class JogadorController implements Serializable {
 	}
 
 	public String voltar() {
-		return "/index?faces-redirect=true";
+		return "../index";
 	}
 
 	public List<Jogador> getlistaJogadores() {

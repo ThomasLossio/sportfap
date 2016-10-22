@@ -1,4 +1,4 @@
-package br.com.chitv.spotfap.model;
+package br.com.chitv.sportfap.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name="jogador", schema="sportfap")
+@Table(name="JOGADOR", schema="sportfap")
 @SequenceGenerator(name = "JogadorSequence", sequenceName = "SQ_ID_JOGADOR", allocationSize = 1)
 public class Jogador implements Serializable{
 

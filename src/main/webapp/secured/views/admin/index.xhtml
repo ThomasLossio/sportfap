@@ -8,7 +8,7 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
-	<title>Toda Hora</title>
+	<title>Sportfap</title>
 </h:head>
 
 <h:body>
@@ -18,29 +18,29 @@
 </form> 
 <h:form id="form">
 	<p>
-      <b>Olá, <h:outputText value="#{request.remoteUser}"/>! </b>
+      <b>Olá, <h:outputText value="#{jogadorController.jogador.nome}"/>! </b>
     </p>	
-	<h1>Usuários</h1>
-	<h:commandButton value="Novo Usário" action="#{usuarioController.irPaginaSalvar()}" />
+	<h1>Jogador</h1>
+	<h:commandButton value="Novo Usário" action="#{jogadorController.irPaginaSalvar()}" />
 	
-	<h:dataTable id="usuarioDT" 
-			value="#{usuarioController.usuarios}" 
-			var="usuario" >
+	<h:dataTable id="jogadorDT" 
+			value="#{JogadorController.jogador}" 
+			var="jogador" >
 			
 		<h:column>
 			<f:facet name="header">ID</f:facet>
-			#{usuario.id}
+			#{jogador.id}
 		</h:column>
 		<h:column>
-			<f:facet name="header">E-MAIL</f:facet>
-			#{usuario.email}
+			<f:facet name="header">NOME</f:facet>
+			#{jogador.nome}
 		</h:column>
 		<h:column>
 			<f:facet name="header">AÇÕES</f:facet>
-			<h:commandButton action="#{usuarioController.excluir()}" value="Excluir">
-				<f:setPropertyActionListener value="#{usuario}" target="#{usuarioController.usuario}"/>
+			<h:commandButton action="#{JogadorController.excluir()}" value="Excluir">
+				<f:setPropertyActionListener value="#{jogador}" target="#{JogadorController.jogador}"/>
 			</h:commandButton>
-			<h:commandButton action="#{usuarioController.irPaginaAtualizar(usuario)}" value="Atualizar" process="@form"/>
+			<h:commandButton action="#{jogadorController.irPaginaAtualizar(jogador)}" value="Atualizar" process="@form"/>
 		</h:column>
 	</h:dataTable>
 	<input type="hidden" name="#{_csrf.parameterName}" value="#{_csrf.token}"/>
