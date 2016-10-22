@@ -15,8 +15,8 @@ Ambiente:
 
 Configuração do datasource no wildfly-9.0.1.Final/standalone/configuration/standalone.xml:
 
-                <datasource jta="true" jndi-name="java:jboss/datasources/apis2DS" pool-name="apis2DS" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:postgresql://localhost:5432/apisIIMaven</connection-url>
+                <datasource jta="true" jndi-name="java:jboss/datasources/sportfap" pool-name="sportfap" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:postgresql://localhost:5432/sportfap</connection-url>
                     <driver>postgresql</driver>
                     <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
                     <pool>
@@ -25,7 +25,7 @@ Configuração do datasource no wildfly-9.0.1.Final/standalone/configuration/stand
                     </pool>
                     <security>
                         <user-name>postgres</user-name>
-                        <password>peça a senha aos colaboradores ou mude...</password>
+                        <password>coloque sua senha do banco aqui</password>
                     </security>
                     <validation>
                         <check-valid-connection-sql>SELECT 1</check-valid-connection-sql>
