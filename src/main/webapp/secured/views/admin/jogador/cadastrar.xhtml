@@ -12,6 +12,7 @@
 </h:head>
 <h:body>
 	<h:form id="cadastrarUsuarioForm" prependId="true">
+
 		<h1>Adicionar Jogador</h1>
 		<p:panelGrid columns="2">
 			<p:outputLabel id="nome_o" value="Nome" />
@@ -37,10 +38,12 @@
 
 		<p:panelGrid columns="2">
 			<p:commandButton value="Adicionar"
-				action="#{jogadorController.salvar()}" />
+				action="#{jogadorController.salvar}"  >
+				 
+				</p:commandButton>
 			<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
 		</p:panelGrid>
-
+ 
 	</h:form>
 </h:body>
 </html>

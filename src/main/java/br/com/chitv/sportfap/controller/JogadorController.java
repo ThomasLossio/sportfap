@@ -5,6 +5,11 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.Application;
+import javax.faces.application.ViewHandler;
+import javax.faces.component.UIViewAction;
+import javax.faces.component.UIViewRoot;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -59,7 +64,7 @@ public class JogadorController implements Serializable {
 	public String atualizar() {
 		this.JogadorDao.atualizar(this.jogador);
 		this.jogador = new Jogador();
-		return "../index";
+		return "../index.xhtml";
 	}
 	public String irPaginaJogadores() {
 		return "../secured/views/admin/index.xhtml";
@@ -69,11 +74,21 @@ public class JogadorController implements Serializable {
 		this.JogadorDao.salvar(this.jogador);
 		this.listaJogadores = JogadorDao.listaJogadores();
 		this.jogador = new Jogador();
-		return "../index";
+		refresh();
+		return null;
+	}
+	
+	private void refresh(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		Application application = context.getApplication();
+		ViewHandler viewHandler = application.getViewHandler();
+		UIViewRoot viewRoot = viewHandler.createView(context, context.getViewRoot().getViewId());
+		context.setViewRoot(viewRoot);
+		context.renderResponse();
 	}
 
 	public String voltar() {
-		return "../index";
+		return "/secured/views/admin/index?faces-redirect=true";
 	}
 
 	public List<Jogador> getlistaJogadores() {
