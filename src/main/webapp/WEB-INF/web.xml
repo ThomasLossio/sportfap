@@ -8,6 +8,8 @@
 	<!-- Welcome page -->
 	<welcome-file-list>
 		<welcome-file>/secured/views/admin/index.xhtml</welcome-file>
+	<welcome-file-list>
+		<welcome-file>secured/views/admin/index.jsf</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
