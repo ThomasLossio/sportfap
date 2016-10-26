@@ -6,7 +6,7 @@
 	<display-name>sportfap</display-name>
 
 	<welcome-file-list>
-		<welcome-file>index.jsf</welcome-file>
+		<welcome-file>secured/views/admin/index.jsf</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
