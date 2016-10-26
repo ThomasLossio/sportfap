@@ -73,7 +73,7 @@ public class JogadorController implements Serializable {
 	}
 
 	public String voltar() {
-		return "../index";
+		return "../secured/views/admin/index.xhtml";
 	}
 
 	public List<Jogador> getlistaJogadores() {

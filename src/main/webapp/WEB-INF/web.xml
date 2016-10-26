@@ -6,9 +6,9 @@
 	<display-name>sportfap</display-name>
 
 	<!-- Welcome page -->
-<!-- 	<welcome-file-list> -->
-<!-- 		<welcome-file>index.jsf</welcome-file> -->
-<!-- 	</welcome-file-list> -->
+	<welcome-file-list>
+		<welcome-file>/secured/views/admin/index.xhtml</welcome-file>
+	</welcome-file-list>
 
 	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
