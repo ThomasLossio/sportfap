@@ -6,10 +6,14 @@
 	<display-name>sportfap</display-name>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<welcome-file-list>
 =======
     <welcome-file-list>
 >>>>>>> branch 'master' of https://github.com/ThomasNeo/sportfap.git
+=======
+    <welcome-file-list>
+>>>>>>> 155509e7609f00a2520cc169990d14e076f7a69a
 		<welcome-file>secured/views/admin/index.jsf</welcome-file>
 	</welcome-file-list>
 

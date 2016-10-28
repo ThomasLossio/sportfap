@@ -1,6 +1,7 @@
 package br.com.chitv.sportfap.dao;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +74,8 @@ public class UsuarioDao {
 
 }
 =======
+=======
+>>>>>>> 155509e7609f00a2520cc169990d14e076f7a69a
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
@@ -94,4 +97,7 @@ public class UsuarioDao{
 		this.em.merge(usuario);
 	}
 }
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/ThomasNeo/sportfap.git
+=======
+>>>>>>> 155509e7609f00a2520cc169990d14e076f7a69a
