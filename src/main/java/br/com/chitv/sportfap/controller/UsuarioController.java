@@ -1,6 +1,7 @@
 package br.com.chitv.sportfap.controller;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -104,3 +105,9 @@ public class UsuarioController implements Serializable {
 	}
 	
 }
+=======
+
+public class UsuarioController implements Serializable{
+	
+}
+>>>>>>> branch 'master' of https://github.com/ThomasNeo/sportfap.git

@@ -79,7 +79,11 @@ public class JogadorController implements Serializable {
 	}
 
 	public String voltar() {
+<<<<<<< HEAD
 		return "/secured/views/admin/index?faces-redirect=true";
+=======
+		return "../secured/views/admin/index.xhtml";
+>>>>>>> branch 'master' of https://github.com/ThomasNeo/sportfap.git
 	}
 
 	public List<Jogador> getlistaJogadores() {

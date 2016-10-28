@@ -5,7 +5,11 @@
 	version="3.1">
 	<display-name>sportfap</display-name>
 
+<<<<<<< HEAD
 	<welcome-file-list>
+=======
+    <welcome-file-list>
+>>>>>>> branch 'master' of https://github.com/ThomasNeo/sportfap.git
 		<welcome-file>secured/views/admin/index.jsf</welcome-file>
 	</welcome-file-list>
 
