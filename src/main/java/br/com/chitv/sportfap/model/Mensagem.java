@@ -29,5 +29,4 @@ public class Mensagem implements Serializable {
 	public void setCorpo(String corpo) {
 		this.corpo = corpo;
 	}
-
 }

@@ -5,10 +5,7 @@
 	version="3.1">
 	<display-name>sportfap</display-name>
 
-	<!-- Welcome page -->
-	<welcome-file-list>
-		<welcome-file>/secured/views/admin/index.xhtml</welcome-file>
-	<welcome-file-list>
+    <welcome-file-list>
 		<welcome-file>secured/views/admin/index.jsf</welcome-file>
 	</welcome-file-list>
 
