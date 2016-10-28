@@ -11,39 +11,36 @@
 <h:head>
 </h:head>
 <h:body>
-	<h:form id="cadastrarUsuarioForm" prependId="true">
+<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	<h:form id="cadastrarTimeForm">
+		<p:growl id="growl" showDetail="true" sticky="true" />
 
-		<h1>Adicionar Jogador</h1>
-		<p:panelGrid columns="2">
-			<p:outputLabel id="nome_o" value="Nome" />
-			<p:inputText id="nome" value="#{jogadorController.jogador.nome}"
-				pt:placeholder="Nome" />
-			
-			<p:outputLabel id="numero_o" value="Numero" />
-			<p:inputText id="numero"
-				value="#{jogadorController.jogador.numero}"
-				pt:placeholder="Numero" />
-			
-			<p:outputLabel id="semestre_o" value="Semestre" />
-			<p:inputText id="semestre"
-				value="#{jogadorController.jogador.semestre}"
-				pt:placeholder="Semestre" />
-			
-			<p:outputLabel id="curso_o" value="curso" />
-			<p:inputText id="curso"
-				value="#{jogadorController.jogador.curso}"
-				pt:placeholder="Curso" />
+		<p:panel id="panel" header="Cadastrar Jogadores">
 
-		</p:panelGrid>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="nome" value="Nome: " />
+				<p:inputText id="nome" value="#{jogadorController.jogador.nome}"
+					pt:placeholder="Nome" />
+				<p:outputLabel id="numero_o" value="Numero" />
+				<p:inputText id="numero" value="#{jogadorController.jogador.numero}"
+					pt:placeholder="Numero" />
 
-		<p:panelGrid columns="2">
-			<p:commandButton value="Adicionar"
-				action="#{jogadorController.salvar}"  >
-				 
-				</p:commandButton>
+				<p:outputLabel id="semestre_o" value="Semestre" />
+				<p:inputText id="semestre"
+					value="#{jogadorController.jogador.semestre}"
+					pt:placeholder="Semestre" />
+
+				<p:outputLabel id="curso_o" value="curso" />
+				<p:inputText id="curso" value="#{jogadorController.jogador.curso}"
+					pt:placeholder="Curso" />
+			</h:panelGrid>
+
+			<p:commandButton value="Salvar" update="panel" action="#{jogadorController.salvar}" />
+
 			<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
-		</p:panelGrid>
- 
+		</p:panel>
 	</h:form>
+
+
 </h:body>
 </html>

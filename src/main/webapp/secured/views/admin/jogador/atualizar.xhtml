@@ -11,22 +11,37 @@
 <h:head>
 </h:head>
 <h:body>
-<h:form id="form">
-	<h1>Atualização Jogador</h1>
-	<p:panelGrid columns="2" >
-		<p:outputLabel id="id_o" value="Id"/>
-		<p:inputText id="id" value="#{jogadorController.jogador.id}" />
-		<p:outputLabel id="nome_o" value="Nome"/>
-		<p:inputText id="email" value="#{jogadorController.jogador.nome}" pt:placeholder="Digite seu Nome" />
-		<p:outputLabel id="senha_o" value="Senha"/>
-		<p:inputText id="input_nome_id" value="#{jogadorController.jogador.numero}" pt:placeholder="Digite seu numero" />
-	</p:panelGrid>
-	
-	<p:panelGrid columns="2">
-		<p:commandButton value="Confirmar Atualização" actionListener="#{jogadorController.atualizar}" process="@form"/>
-		<p:commandButton value="Voltar" action="#{jogadorController.voltar}"/>
-	</p:panelGrid>
-	
-</h:form>
+	<h:form id="form">
+		<h1>Atualização Jogador</h1>
+		<p:panelGrid columns="2">
+
+			<p:outputLabel id="nome_o" value="Nome" />
+			<p:inputText id="nome" value="#{jogadorController.jogador.nome}"
+				pt:placeholder="Digite seu Nome" />
+
+			<p:outputLabel id="numero_o" value="Numero" />
+			<p:inputText id="input_numero_id"
+				value="#{jogadorController.jogador.numero}"
+				pt:placeholder="Digite seu numero" />
+
+			<p:outputLabel id="semestre_o" value="Semestre" />
+			<p:inputText id="input_semestre_id"
+				value="#{jogadorController.jogador.semestre}"
+				pt:placeholder="Digite seu semestre" />
+
+			<p:outputLabel id="curso_o" value="Curso" />
+			<p:inputText id="input_cusro_id"
+				value="#{jogadorController.jogador.curso}"
+				pt:placeholder="Digite seu curso" />
+				
+		</p:panelGrid>
+
+		<p:panelGrid columns="2">
+			<p:commandButton value="Confirmar Atualização"
+				actionListener="#{jogadorController.atualizar}" process="@form" />
+			<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
+		</p:panelGrid>
+
+	</h:form>
 </h:body>
 </html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form id="cadastrarUsuarioForm" prependId="true">
+
+		<h1>Cadastrar Usuário</h1>
+		<p:panelGrid columns="2">
+			<p:outputLabel id="nome_o" value="Nome" />
+			<p:inputText id="nome" value="#{jogadorController.jogador.nome}"
+				pt:placeholder="Nome" />
+
+			<p:outputLabel id="senha_o" value="Senha" />
+			<p:inputText id="senha" value="#{jogadorController.jogador.numero}"
+				pt:placeholder="Senha" />
+
+			<p:outputLabel id="email_o" value="Email" />
+			<p:inputText id="emanil"
+				value="#{jogadorController.jogador.semestre}" pt:placeholder="Email" />
+
+			<p:outputLabel id="cpf_o" value="CPF" />
+			<p:inputText id="cpf" value="#{jogadorController.jogador.curso}"
+				pt:placeholder="CPF" />
+			
+		</p:panelGrid>
+
+		<p:panelGrid columns="2">
+
+				<p:commandButton value="Adicionar"
+					action="#{jogadorController.salvar}"
+					actionListener="#{messagesView.info}">
+
+				</p:commandButton>
+				<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
+		</p:panelGrid>
+
+	</h:form>
+</h:body>
+</html>

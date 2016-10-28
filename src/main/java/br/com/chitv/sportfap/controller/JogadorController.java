@@ -5,14 +5,13 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.Application;
-import javax.faces.application.ViewHandler;
-import javax.faces.component.UIViewAction;
-import javax.faces.component.UIViewRoot;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
+
+import org.primefaces.context.RequestContext;
 
 import br.com.chitv.sportfap.dao.JogadorDao;
 import br.com.chitv.sportfap.model.Jogador;
@@ -74,17 +73,9 @@ public class JogadorController implements Serializable {
 		this.JogadorDao.salvar(this.jogador);
 		this.listaJogadores = JogadorDao.listaJogadores();
 		this.jogador = new Jogador();
-		refresh();
-		return null;
-	}
-	
-	private void refresh(){
-		FacesContext context = FacesContext.getCurrentInstance();
-		Application application = context.getApplication();
-		ViewHandler viewHandler = application.getViewHandler();
-		UIViewRoot viewRoot = viewHandler.createView(context, context.getViewRoot().getViewId());
-		context.setViewRoot(viewRoot);
-		context.renderResponse();
+		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Jogador Cadastrado Com Sucesso!"));
+		 RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");
+		 return null;
 	}
 
 	public String voltar() {
