@@ -1,8 +1,6 @@
 package br.com.chitv.sportfap.controller;
 
 import java.io.Serializable;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -28,7 +26,7 @@ public class UsuarioController implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1638290532499587239L;
+	private static final long serialVersionUID = 3288870853461444768L;
 
 	private Usuario usuario;
 
@@ -106,14 +104,3 @@ public class UsuarioController implements Serializable {
 	}
 	
 }
-=======
-=======
->>>>>>> 155509e7609f00a2520cc169990d14e076f7a69a
-
-public class UsuarioController implements Serializable{
-	
-}
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/ThomasNeo/sportfap.git
-=======
->>>>>>> 155509e7609f00a2520cc169990d14e076f7a69a

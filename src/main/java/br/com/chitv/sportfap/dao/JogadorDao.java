@@ -1,6 +1,7 @@
 package br.com.chitv.sportfap.dao;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.enterprise.context.Dependent;
@@ -11,7 +12,6 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import br.com.chitv.sportfap.model.Jogador;
-import br.com.chitv.sportfap.model.JogadorProfile;
 
 
 @Named
@@ -57,13 +57,13 @@ public class JogadorDao {
 		List<Jogador> jogadores = new ArrayList<Jogador>();
 		jogadores.add(jogador);
 		
-		JogadorProfile jogadorProfile = new JogadorProfile();
-		jogadorProfile.setId(1L);
-		jogadorProfile.setType("ROLE_ADMIN");
-		jogadorProfile.setJogadores(jogadores);
-		
-		List<JogadorProfile> jogadorProfiles = new ArrayList<JogadorProfile>();
-		jogadorProfiles.add(jogadorProfile);
+//		JogadorProfile jogadorProfile = new JogadorProfile();
+//		jogadorProfile.setId(1L);
+//		jogadorProfile.setType("ROLE_ADMIN");
+//		jogadorProfile.setJogadores(jogadores);
+//		
+//		List<JogadorProfile> jogadorProfiles = new ArrayList<JogadorProfile>();
+//		jogadorProfiles.add(jogadorProfile);
 		
 	
 		

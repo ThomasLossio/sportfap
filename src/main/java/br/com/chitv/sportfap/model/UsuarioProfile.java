@@ -23,7 +23,7 @@ public class UsuarioProfile implements Serializable {
 	@Column(name = "TYPE")
 	private String type;
 
-	
+	@OneToMany(mappedBy = "usuarioProfile")
 	private List<Usuario> usuarios;
 
 	public UsuarioProfile() {	}
