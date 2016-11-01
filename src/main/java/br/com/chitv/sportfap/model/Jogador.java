@@ -1,7 +1,6 @@
 package br.com.chitv.sportfap.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.*;
 
@@ -88,8 +87,7 @@ public class Jogador implements Serializable{
     @ManyToOne
     @JoinColumn(name= "time_id")
 	private Time time;
-    @ManyToMany(fetch = FetchType.EAGER)
-	private List<JogadorProfile> jogadorProfiles;
+
     
     
   

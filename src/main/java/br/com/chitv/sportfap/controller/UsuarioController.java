@@ -26,7 +26,7 @@ public class UsuarioController implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1638290532499587239L;
+	private static final long serialVersionUID = 3288870853461444768L;
 
 	private Usuario usuario;
 
@@ -103,4 +103,5 @@ public class UsuarioController implements Serializable {
 		this.usuario = usuario;
 	}
 	
+
 }
