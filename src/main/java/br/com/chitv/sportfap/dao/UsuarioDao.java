@@ -65,7 +65,7 @@ public class UsuarioDao {
 		UsuarioProfile usuarioProfile = new UsuarioProfile();
 		usuarioProfile.setId(1L);
 		usuarioProfile.setType("ROLE_ADMIN");
-//		usuarioProfile.setUsuarios(usuarios);
+		usuarioProfile.setUsuarios(usuarios);
 		
 		List<UsuarioProfile> usuarioProfiles = new ArrayList<UsuarioProfile>();
 		usuarioProfiles.add(usuarioProfile);

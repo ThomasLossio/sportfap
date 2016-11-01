@@ -11,38 +11,41 @@
 <h:head>
 </h:head>
 <h:body>
-	<h:form id="cadastrarUsuarioForm" prependId="true">
+<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	<h:form id="cadastrarTimeForm">
+		<p:growl id="growl" showDetail="true" sticky="true" />
 
-		<h1>Cadastrar Usuário</h1>
-		<p:panelGrid columns="2">
-			<p:outputLabel id="nome_o" value="Nome" />
-			<p:inputText id="nome" value="#{jogadorController.jogador.nome}"
-				pt:placeholder="Nome" />
+		<p:panel id="panel" header="Cadastrar Usuario">
 
-			<p:outputLabel id="senha_o" value="Senha" />
-			<p:inputText id="senha" value="#{jogadorController.jogador.numero}"
-				pt:placeholder="Senha" />
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="nome" value="Nome: " />
+				<p:inputText id="nome" value="#{usuarioController.usuario.nome}"
+					pt:placeholder="Nome" />
+					
+					<p:outputLabel for="login" value="Login " />
+				<p:inputText id="login" value="#{usuarioController.usuario.login}"
+					pt:placeholder="Login" />
+					
+				<p:outputLabel id="senha_o" value="Senha" />
+				<p:inputText id="numero" value="#{usuarioController.usuario.senha}"
+					pt:placeholder="Senha" />
 
-			<p:outputLabel id="email_o" value="Email" />
-			<p:inputText id="emanil"
-				value="#{jogadorController.jogador.semestre}" pt:placeholder="Email" />
+				<p:outputLabel id="email_o" value="Email" />
+				<p:inputText id="email"
+					value="#{usuarioController.usuario.email}"
+					pt:placeholder="Email" />
 
-			<p:outputLabel id="cpf_o" value="CPF" />
-			<p:inputText id="cpf" value="#{jogadorController.jogador.curso}"
-				pt:placeholder="CPF" />
-			
-		</p:panelGrid>
+				<p:outputLabel id="cpf_o" value="CPF" />
+				<p:inputText id="cpf" value="#{usuarioController.usuario.cpf}"
+					pt:placeholder="Cpf" />
+			</h:panelGrid>
 
-		<p:panelGrid columns="2">
+			<p:commandButton value="Salvar" update="panel" action="#{usuarioController.salvar}" />
 
-				<p:commandButton value="Adicionar"
-					action="#{jogadorController.salvar}"
-					actionListener="#{messagesView.info}">
-
-				</p:commandButton>
-				<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
-		</p:panelGrid>
-
+			<p:commandButton value="Voltar" action="#{usuarioController.voltar}" />
+		</p:panel>
 	</h:form>
+
+
 </h:body>
 </html>
