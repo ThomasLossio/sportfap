@@ -1,6 +1,9 @@
 package br.com.chitv.sportfap.dao;
 
 
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class UsuarioDao {
 		this.emM.remove(this.emM.contains(usuario) ? usuario : this.emM.merge(usuario) );
 	}
 
+	
 	public List<Usuario> listaUsuarios() {
 		TypedQuery<Usuario> query = emM.createQuery("select u from Usuario u", Usuario.class);
 		return query.getResultList();
@@ -61,7 +65,7 @@ public class UsuarioDao {
 		UsuarioProfile usuarioProfile = new UsuarioProfile();
 		usuarioProfile.setId(1L);
 		usuarioProfile.setType("ROLE_ADMIN");
-//		usuarioProfile.setUsuarios(usuarios);
+		usuarioProfile.setUsuarios(usuarios);
 		
 		List<UsuarioProfile> usuarioProfiles = new ArrayList<UsuarioProfile>();
 		usuarioProfiles.add(usuarioProfile);
@@ -71,5 +75,15 @@ public class UsuarioDao {
 		return usuario; 
 	}
 
+
+
+	public Usuario getUsuario(String nome, String senha) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
+
+
+
 

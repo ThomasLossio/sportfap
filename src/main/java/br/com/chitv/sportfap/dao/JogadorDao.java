@@ -18,6 +18,7 @@ import br.com.chitv.sportfap.model.Jogador;
 @Dependent
 public class JogadorDao {
 
+
 	@PersistenceContext(unitName="sportfap")
 	private EntityManager em;
 
