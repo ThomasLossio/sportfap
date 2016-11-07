@@ -27,8 +27,9 @@ public class JogadorDao {
 		this.em.remove(this.em.contains(jogador) ? jogador : this.em.merge(jogador) );
 	}
 
+	//Tentando gerar listagem por aqui...
 	public List<Jogador> listaJogadores() {
-		TypedQuery<Jogador> query = em.createQuery("select u from Jogador u", Jogador.class);
+		TypedQuery<Jogador> query = em.createQuery("select id, nome, semestre, curso, numero from sportfap.jogador", Jogador.class);
 		return query.getResultList();
 	}
 	
