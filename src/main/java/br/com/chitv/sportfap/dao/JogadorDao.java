@@ -27,7 +27,6 @@ public class JogadorDao {
 		this.em.remove(this.em.contains(jogador) ? jogador : this.em.merge(jogador) );
 	}
 
-	//Tentando gerar listagem por aqui...
 	public List<Jogador> listaJogadores() {
 		TypedQuery<Jogador> query = em.createQuery("select id, nome, semestre, curso, numero from sportfap.jogador", Jogador.class);
 		return query.getResultList();
@@ -46,6 +45,16 @@ public class JogadorDao {
 		String queryStr = "select u from Usuario u where u.nome = :nome";
 		TypedQuery<Jogador> query = this.em.createQuery(queryStr, Jogador.class);
 		query.setParameter("nome", nome);
+		List<Jogador> jogadores = query.getResultList();
+		return jogadores.isEmpty() ? null : jogadores.get(0);
+	}
+	
+	//Esse método está funcionando perfeitamente, explicarei pessoalmente para as demais partes
+	@Transactional
+	public Jogador findById(Long id){
+		String queryStr = "select u from Jogador u where u.id = :id";
+		TypedQuery<Jogador> query = this.em.createQuery(queryStr, Jogador.class);
+		query.setParameter("id", id);
 		List<Jogador> jogadores = query.getResultList();
 		return jogadores.isEmpty() ? null : jogadores.get(0);
 	}
