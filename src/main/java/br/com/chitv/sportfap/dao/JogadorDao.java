@@ -28,7 +28,7 @@ public class JogadorDao {
 	}
 
 	public List<Jogador> listaJogadores() {
-		TypedQuery<Jogador> query = em.createQuery("select id, nome, semestre, curso, numero from sportfap.jogador", Jogador.class);
+		TypedQuery<Jogador> query = em.createQuery("select u from Jogador u", Jogador.class);
 		return query.getResultList();
 	}
 	

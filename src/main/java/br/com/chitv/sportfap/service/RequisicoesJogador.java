@@ -1,5 +1,6 @@
 package br.com.chitv.sportfap.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,6 +10,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -35,17 +37,30 @@ public class RequisicoesJogador {
     	
         return this.jogadorDao.findById(id);
     }
-    
-    @POST
-    @Path("/salvarJogador/{nome}/{numero}/{semestre}/{curso}")
-    @Consumes({MediaType.APPLICATION_JSON})
-    public Response consomeJogadorJSON(@PathParam("nome") String nome, @PathParam("numero") Long numero, @PathParam("semestre") Long semestre, @PathParam("curso") String curso){
+
+    @GET @Path("/salvarJogador/{nome}/{numero}/{semestre}/{curso}") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
+    public Response getSalvaJogadorJSON(@PathParam("nome") String nome, @PathParam("numero") Long numero, @PathParam("semestre") Long semestre, @PathParam("curso") String curso){
     	Jogador jogador = new Jogador();
     	jogador.setNome(nome);
     	jogador.setNumero(numero);
     	jogador.setSemestre(semestre);
     	jogador.setCurso(curso);
     	this.jogadorDao.salvar(jogador);
-		return Response.status(200).entity("Feito").build();
+    	return Response.status(200).entity("Feito").build();
     }
+
+    @GET @Path("/excluirJogador/{id}") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
+    public Response getExcluiJogadorJSON(@PathParam("id") Long id){    	
+           	
+    	this.jogadorDao.excluir(this.jogadorDao.findById(id));
+    	return Response.status(200).entity("Feito").build();
+    }
+
+    //Ele pediu pra ver com a anotação @QueryParam
+    @GET @Path("/listarJogadores") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
+    public List<Jogador> getListaJogadoresJSON(){    	
+        return this.jogadorDao.listaJogadores();
+    	
+    }    
+    
 }
