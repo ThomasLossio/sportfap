@@ -53,6 +53,15 @@ public class UsuarioDao {
 		List<Usuario> usuarios = query.getResultList();
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
+	
+	public Usuario findByNomsenha(String nome, String senha) {
+		String queryStr = "select u from Usuario u where u.nome = :nome and u.senha = :senha";
+		TypedQuery<Usuario> query = this.emM.createQuery(queryStr, Usuario.class);
+		query.setParameter("nome", nome);
+		query.setParameter("senha", senha);
+		List<Usuario> usuarios = query.getResultList();
+		return usuarios.isEmpty() ? null : usuarios.get(0);
+	}
 	public Usuario findByNomeFake(String nome) {
 		Usuario usuario = new Usuario();
 		usuario.setNome("ismael");
