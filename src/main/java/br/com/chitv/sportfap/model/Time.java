@@ -36,4 +36,53 @@ public class Time implements Serializable{
 	    
 	    @ManyToMany(mappedBy = "times")
 	    private List<Evento> eventos;
+
+		public Long getId() {
+			return id;
+		}
+
+		public void setId(Long id) {
+			this.id = id;
+		}
+
+		public String getNome() {
+			return nome;
+		}
+
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+
+		public int getCapitao() {
+			return capitao;
+		}
+
+		public void setCapitao(int capitao) {
+			this.capitao = capitao;
+		}
+
+		public int getFone_capitao() {
+			return fone_capitao;
+		}
+
+		public void setFone_capitao(int fone_capitao) {
+			this.fone_capitao = fone_capitao;
+		}
+
+		public List<Jogador> getJogadores() {
+			return jogadores;
+		}
+
+		public void setJogadores(List<Jogador> jogadores) {
+			this.jogadores = jogadores;
+		}
+
+		public List<Evento> getEventos() {
+			return eventos;
+		}
+
+		public void setEventos(List<Evento> eventos) {
+			this.eventos = eventos;
+		}
+	    
 }

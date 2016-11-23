@@ -9,6 +9,7 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
+
 </h:head>
 <h:body>
 
@@ -18,12 +19,12 @@
 		<p:panel header="Cadastrar Time">
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="nome" value="Nome: " />
-				<p:inputText id="nome" />
+				<p:inputText id="nome" value="#{timeController.time.nome}" pt:placeholder="Time"/>
 				
 				
 			</h:panelGrid>
-			<p:commandButton value="Salvar" action="#{jogadorController.salvar}"/>
-			<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
+			<p:commandButton value="Salvar" action="#{timeController.salvar}"/>
+			<p:commandButton value="Voltar" action="#{timeController.voltar}" />
 		</p:panel>
 	</h:form>
 </h:body>
