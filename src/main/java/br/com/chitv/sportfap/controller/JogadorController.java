@@ -28,7 +28,7 @@ public class JogadorController implements Serializable {
 	private List<Jogador> listaJogadores;
 
 	@Inject
-	private JogadorDao JogadorDao;
+	private JogadorDao jogadorDao;
 
 	@PostConstruct
 	public void init() {
@@ -37,15 +37,15 @@ public class JogadorController implements Serializable {
 
 	public List<Jogador> getJogadores() {
 		if (this.listaJogadores == null || this.listaJogadores.isEmpty()) {
-			this.listaJogadores = this.JogadorDao.listaJogadores();
+			this.listaJogadores = this.jogadorDao.listaJogadores();
 		}
 		return this.listaJogadores;
 	}
 
 
 	public String excluir() {
-		this.JogadorDao.excluir(this.jogador);
-		this.listaJogadores = JogadorDao.listaJogadores();
+		this.jogadorDao.excluir(this.jogador);
+		this.listaJogadores = jogadorDao.listaJogadores();
 		this.jogador = new Jogador();
 		return "index?faces-redirect=true";
 	}
@@ -61,7 +61,7 @@ public class JogadorController implements Serializable {
 
 	@Transactional
 	public String atualizar() {
-		this.JogadorDao.atualizar(this.jogador);
+		this.jogadorDao.atualizar(this.jogador);
 		this.jogador = new Jogador();
 		return "../index.xhtml";
 	}
@@ -70,8 +70,8 @@ public class JogadorController implements Serializable {
 	}
 
 	public String salvar() {
-		this.JogadorDao.salvar(this.jogador);
-		this.listaJogadores = JogadorDao.listaJogadores();
+		this.jogadorDao.salvar(this.jogador);
+		this.listaJogadores = jogadorDao.listaJogadores();
 		this.jogador = new Jogador();
 		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Jogador Cadastrado Com Sucesso!"));
 		 RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");

@@ -1,5 +1,6 @@
 package br.com.chitv.sportfap.controller;
 
+import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,15 +14,12 @@ import javax.transaction.Transactional;
 
 import org.primefaces.context.RequestContext;
 
-
 import br.com.chitv.sportfap.dao.UsuarioDao;
 import br.com.chitv.sportfap.model.Usuario;
-
 
 @Named
 @RequestScoped
 public class UsuarioController implements Serializable {
-
 
 	/**
 	 * 
@@ -47,7 +45,6 @@ public class UsuarioController implements Serializable {
 		return this.usuarios;
 	}
 
-
 	public String excluir() {
 		this.usuarioDao.excluir(this.usuario);
 		this.usuarios = usuarioDao.listaUsuarios();
@@ -70,6 +67,7 @@ public class UsuarioController implements Serializable {
 		this.usuario = new Usuario();
 		return "../index.xhtml";
 	}
+
 	public String irPaginaUsuarios() {
 		return "../secured/views/admin/index.xhtml";
 	}
@@ -78,9 +76,10 @@ public class UsuarioController implements Serializable {
 		this.usuarioDao.salvar(this.usuario);
 		this.usuarios = usuarioDao.listaUsuarios();
 		this.usuario = new Usuario();
-		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Usuario Cadastrado Com Sucesso!"));
-		 RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");
-		 return null;
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Usuario Cadastrado Com Sucesso!"));
+		RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");
+		return null;
 	}
 
 	public String voltar() {
@@ -102,14 +101,31 @@ public class UsuarioController implements Serializable {
 	public void setJogador(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-public String Checar(String nome, String senha) {
-	UsuarioDao usuarioDao = new UsuarioDao();
-	if(usuarioDao.findByNomsenha(nome, senha) == null){
-		return "erro.xhtml";
-	}else{
-		return "logado.xhtml";
+
+	public String Checa() {
+		boolean cert = usuarioDao.findByNomeSenha(usuario.getNome(), usuario.getSenha());
+		if (cert) {
+			return "logado.xhtml";
+		} else {
+			return "erro.xhtml";
+		}
+
 	}
+	 public void login(ActionEvent event) {
+	        RequestContext context = RequestContext.getCurrentInstance();
+	        FacesMessage message = null;
+	        boolean loggedIn = false;
+	         
+	        if(usuario.getNome() != null && usuario.getNome().equals("admin") && usuario.getSenha() != null && usuario.getSenha().equals("admin")) {
+	            loggedIn = true;
+	            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", usuario.getNome());
+	        } else {
+	            loggedIn = false;
+	            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erro ao logar", "Credenciais Invalida");
+	        }
+	         
+	        FacesContext.getCurrentInstance().addMessage(null, message);
+	        context.addCallbackParam("loggedIn", loggedIn);
+	    }   
 	
-}
 }
