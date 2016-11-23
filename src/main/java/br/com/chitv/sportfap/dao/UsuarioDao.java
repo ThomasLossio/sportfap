@@ -1,7 +1,6 @@
 package br.com.chitv.sportfap.dao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.enterprise.context.Dependent;
@@ -10,8 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-
-import org.apache.http.impl.io.SocketOutputBuffer;
 
 import br.com.chitv.sportfap.model.Usuario;
 import br.com.chitv.sportfap.model.UsuarioProfile;
@@ -49,8 +46,15 @@ public class UsuarioDao {
 		List<Usuario> usuarios = query.getResultList();
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
+	public Usuario findByLogin(String login) {
+		String queryStr = "select u from Usuario u where u.login = :login";
+		TypedQuery<Usuario> query = this.emM.createQuery(queryStr, Usuario.class);
+		query.setParameter("login", login);
+		List<Usuario> usuarios = query.getResultList();
+		return usuarios.isEmpty() ? null : usuarios.get(0);
+	}
 
-	public boolean findByNomeSenha(String nome, String senha) {
+	public boolean findByNomeSenha(String login, String senha) {
 		// String queryStr = "select u from Usuario u where u.nome = :nome and
 		// u.senha = :senha";
 		// TypedQuery<Usuario> query = this.emM.createQuery(queryStr,
@@ -60,10 +64,10 @@ public class UsuarioDao {
 		// List<Usuario> usuarios = query.getResultList();
 		// return usuarios.isEmpty() ? null : usuarios.get(0);
 
-		if (findByNome(nome) != null) {
-			Usuario userL = findByNome(nome);
+		Usuario userL = findByLogin(login);
+		if (userL != null) {
 
-			if (userL.getNome().equals(nome) && userL.getSenha().equals(senha)) {
+			if (userL.getLogin().equals(login) && userL.getSenha().equals(senha)) {
 				return true;
 			}
 			

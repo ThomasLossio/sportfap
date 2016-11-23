@@ -102,8 +102,8 @@ public class UsuarioController implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public String Checa() {
-		boolean cert = usuarioDao.findByNomeSenha(usuario.getNome(), usuario.getSenha());
+	public String checa() {
+		boolean cert = usuarioDao.findByNomeSenha(usuario.getLogin(), usuario.getSenha());
 		if (cert) {
 			return "logado.xhtml";
 		} else {
