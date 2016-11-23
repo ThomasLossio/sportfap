@@ -11,12 +11,35 @@ CREATE TABLE sportfap.JOGADOR (
 	PRIMARY KEY (id)
 ); 
 COMMENT ON TABLE sportfap.JOGADOR IS 'Responsible for maintaining the record of jogador';
-COMMENT ON COLUMN sportfap.JOGADOR.ID IS 'Identifier Jogador';
-COMMENT ON COLUMN sportfap.JOGADOR.NAME IS 'Name jogador'; 
-COMMENT ON COLUMN sportfap.JOGADOR.NUMERO IS 'Numero jogador';
-COMMENT ON COLUMN sportfap.JOGADOR.SEMESTRE IS 'Semestre';
+COMMENT ON COLUMN sportfap.JOGADOR.ID IS 'Identifier usuario';
+COMMENT ON COLUMN sportfap.JOGADOR.NOME IS 'Name usuario'; 
+COMMENT ON COLUMN sportfap.JOGADOR.EMAIL IS 'email usuario';
+COMMENT ON COLUMN sportfap.JOGADOR.LOGIN IS 'login';
+COMMENT ON COLUMN sportfap.JOGADOR.CPF IS 'SENHA';
+COMMENT ON COLUMN sportfap.JOGADOR.SENHA 'Senha';
+CREATE UNIQUE INDEX u_idx_nome ON sportfap.JOGADOR (NOME);
+
+(cpf, email , login, nome, senha)
+-- Usuario
+CREATE TABLE sportfap.USUARIO (
+	(
+  id bigint NOT NULL,
+  cpf character varying(15),
+  email character varying(30),
+  login character varying(30) NOT NULL,
+  nome character varying(80) NOT NULL,
+  senha character varying(30) NOT NULL,
+  CONSTRAINT usuario_pkey PRIMARY KEY (id)
+);
+
+COMMENT ON TABLE sportfap.USUARIO IS 'Responsible for maintaining the record of usuario';
+COMMENT ON COLUMN sportfap.USUARIO.ID IS 'Identifier usuario';
+COMMENT ON COLUMN sportfap.USUARIO.NAME IS 'Name usuario'; 
+COMMENT ON COLUMN sportfap.USUARIO.NUMERO IS 'Numero usuario';
+COMMENT ON COLUMN sportfap.USUARIO.SEMESTRE IS 'Semestre';
 COMMENT ON COLUMN sportfap.JOGADOR.CURSO 'Curso';
 CREATE UNIQUE INDEX u_idx_nome ON sportfap.JOGADOR (NOME);
+
 
 -- Jogador profile
 CREATE TABLE sportfap.JOGADOR_PROFILE(

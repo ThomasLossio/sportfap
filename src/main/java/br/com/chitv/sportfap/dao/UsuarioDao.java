@@ -1,6 +1,9 @@
 package br.com.chitv.sportfap.dao;
 
 
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +31,7 @@ public class UsuarioDao {
 		this.emM.remove(this.emM.contains(usuario) ? usuario : this.emM.merge(usuario) );
 	}
 
+	
 	public List<Usuario> listaUsuarios() {
 		TypedQuery<Usuario> query = emM.createQuery("select u from Usuario u", Usuario.class);
 		return query.getResultList();
@@ -49,6 +53,15 @@ public class UsuarioDao {
 		List<Usuario> usuarios = query.getResultList();
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
+	
+	public Usuario findByNomsenha(String nome, String senha) {
+		String queryStr = "select u from Usuario u where u.nome = :nome and u.senha = :senha";
+		TypedQuery<Usuario> query = this.emM.createQuery(queryStr, Usuario.class);
+		query.setParameter("nome", nome);
+		query.setParameter("senha", senha);
+		List<Usuario> usuarios = query.getResultList();
+		return usuarios.isEmpty() ? null : usuarios.get(0);
+	}
 	public Usuario findByNomeFake(String nome) {
 		Usuario usuario = new Usuario();
 		usuario.setNome("ismael");
@@ -61,7 +74,7 @@ public class UsuarioDao {
 		UsuarioProfile usuarioProfile = new UsuarioProfile();
 		usuarioProfile.setId(1L);
 		usuarioProfile.setType("ROLE_ADMIN");
-//		usuarioProfile.setUsuarios(usuarios);
+		usuarioProfile.setUsuarios(usuarios);
 		
 		List<UsuarioProfile> usuarioProfiles = new ArrayList<UsuarioProfile>();
 		usuarioProfiles.add(usuarioProfile);
@@ -71,5 +84,15 @@ public class UsuarioDao {
 		return usuario; 
 	}
 
+
+
+	public Usuario getUsuario(String nome, String senha) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
+
+
+
 

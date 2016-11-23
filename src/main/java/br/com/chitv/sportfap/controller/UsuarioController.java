@@ -103,4 +103,13 @@ public class UsuarioController implements Serializable {
 		this.usuario = usuario;
 	}
 	
+public String Checar(String nome, String senha) {
+	UsuarioDao usuarioDao = new UsuarioDao();
+	if(usuarioDao.findByNomsenha(nome, senha) == null){
+		return "erro.xhtml";
+	}else{
+		return "logado.xhtml";
+	}
+	
+}
 }
