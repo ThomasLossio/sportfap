@@ -111,21 +111,9 @@ public class UsuarioController implements Serializable {
 		}
 
 	}
-	 public void login(ActionEvent event) {
-	        RequestContext context = RequestContext.getCurrentInstance();
-	        FacesMessage message = null;
-	        boolean loggedIn = false;
-	         
-	        if(usuario.getNome() != null && usuario.getNome().equals("admin") && usuario.getSenha() != null && usuario.getSenha().equals("admin")) {
-	            loggedIn = true;
-	            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", usuario.getNome());
-	        } else {
-	            loggedIn = false;
-	            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erro ao logar", "Credenciais Invalida");
-	        }
-	         
-	        FacesContext.getCurrentInstance().addMessage(null, message);
-	        context.addCallbackParam("loggedIn", loggedIn);
-	    }   
-	
+
+	public String login() {
+		return "../secured/views/login.xhtml";
+	}
+
 }

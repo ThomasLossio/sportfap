@@ -5,45 +5,59 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Sportfap</title>
 </h:head>
 
-<h:body>
-<form action="${request.contextPath}/logout" method="post">
-	<input type="submit" value="Logout"/>
-	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>		
-</form> 
-<h:form id="form">
-	<p>
-      <b>Olá, <h:outputText value="#{jogadorController.jogador.nome}"/>! </b>
-    </p>	
-	<h1>Jogador</h1>
-	<h:commandButton value="Novo Usário" action="#{jogadorController.irPaginaSalvar()}" />
-	
-	<h:dataTable id="jogadorDT" 
-			value="#{JogadorController.jogador}" 
-			var="jogador" >
-			
-		<h:column>
-			<f:facet name="header">ID</f:facet>
-			#{jogador.id}
-		</h:column>
-		<h:column>
-			<f:facet name="header">NOME</f:facet>
-			#{jogador.nome}
-		</h:column>
-		<h:column>
-			<f:facet name="header">AÇÕES</f:facet>
-			<h:commandButton action="#{JogadorController.excluir()}" value="Excluir">
-				<f:setPropertyActionListener value="#{jogador}" target="#{JogadorController.jogador}"/>
-			</h:commandButton>
-			<h:commandButton action="#{jogadorController.irPaginaAtualizar(jogador)}" value="Atualizar" process="@form"/>
-		</h:column>
-	</h:dataTable>
-	<input type="hidden" name="#{_csrf.parameterName}" value="#{_csrf.token}"/>
-</h:form>
-</h:body>
+<body>
+	<p:layout style="min-width:300px;min-height:110px;">
+		<p:layoutUnit position="center">
+			<h1>SportFAP</h1>
+
+		</p:layoutUnit>
+	</p:layout>
+	<h:form>
+		<p:toolbar id="tb">
+			<f:facet name="left">
+				<p:commandButton type="button" value="HOME" />
+				<p:commandButton type="button" value="EVENTOS" />
+			</f:facet>
+			<f:facet name="right">
+
+				<p:commandButton actionListener="#{usuarioController.login()}"
+					type="button" value="LOGIN" />
+			</f:facet>
+		</p:toolbar>
+	</h:form>
+	<p:layout style="min-width:400px;min-height:200px;">
+		<p:layoutUnit position="west" resizable="true" size="200" minSize="40"
+			maxSize="300">
+      <form action="${request.contextPath}/logout" method="post">
+				
+			</form>
+			<h:form id="form">
+				<p>
+					<b>Olá, <h:outputText value="#{jogadorController.jogador.nome}" />!
+					</b>
+				</p>
+				<h:commandButton value="Novo Usário"
+					action="#{jogadorController.irPaginaSalvar()}" />
+
+				<h:dataTable id="jogadorDT" value="#{JogadorController.jogador}"
+					var="jogador">
+				</h:dataTable>
+				<input type="hidden" name="#{_csrf.parameterName}"
+					value="#{_csrf.token}" />
+			</h:form>
+    </p:layoutUnit>
+
+		<p:layoutUnit position="center">
+			Center
+		</p:layoutUnit>
+	</p:layout>
+</body>
+
 </html>
