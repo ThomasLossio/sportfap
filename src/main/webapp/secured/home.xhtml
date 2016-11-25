@@ -6,25 +6,29 @@
 <h:head>
 
 </h:head>
-<body>
+<h:body>
+<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 	<p:layout style="min-width:300px;min-height:110px;">
 		<p:layoutUnit position="center">
         <h1>SportFAP</h1>
         
     </p:layoutUnit>
 	</p:layout>
-	<h:form>
+	<h:form id="test">
 		<p:toolbar id="tb">
+		
 			<f:facet name="left">
 				<p:commandButton type="button" value="HOME" />
 				<p:commandButton type="button" value="EVENTOS" />
 			</f:facet>
 			<f:facet name="right">
-
-				<p:commandButton actionListener="#{usuarioController.login()}" type="button"
-					value="LOGIN" />
+				
+				<p:commandButton update="painel" action="#{usuarioController.login}" value="LOGIN" />
 			</f:facet>
+			
 		</p:toolbar>
+		<p:panel id="painel">
+		</p:panel>
 	</h:form>
 	<p:layout style="min-width:400px;min-height:200px;">
 		<p:layoutUnit position="west" resizable="true" size="100" minSize="40"
@@ -32,9 +36,8 @@
         West
     </p:layoutUnit>
 
-		<p:layoutUnit position="center">
-        Center
+	<p:layoutUnit id="layoutCenter" position="center">
     </p:layoutUnit>
 	</p:layout>
-</body>
+</h:body>
 </html>

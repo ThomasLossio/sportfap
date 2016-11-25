@@ -112,8 +112,15 @@ public class UsuarioController implements Serializable {
 
 	}
 
+	private String teste(){
+		return "views/login.xhtml";
+	}
+	
 	public String login() {
-		return "../secured/views/login.xhtml";
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", teste()));
+		RequestContext.getCurrentInstance().reset("test:painel");
+		//return "views/login.xhtml";
+		return null;
 	}
 
 }
