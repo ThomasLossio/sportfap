@@ -58,6 +58,9 @@ public class JogadorController implements Serializable {
 	public String irPaginaSalvar() {
 		return "jogador/cadastrar?faces-redirect=true";
 	}
+	public String irPaginaLogin() {
+		return "../secured/views/login.xhtml";
+	}
 
 	@Transactional
 	public String atualizar() {

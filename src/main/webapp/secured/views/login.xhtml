@@ -17,11 +17,10 @@
 
 			<p:outputLabel for="senha" value="Senha:" />
 			<p:password id="senha" value="#{usuarioController.usuario.senha}" />
-
-			<p:commandButton value="Entrar" icon="ui-icon-star"
-				action="#{usuarioController.checa()}">
-			</p:commandButton>
-
+			
+				<p:commandButton value="Entrar" icon="ui-icon-star"
+					action="#{usuarioController.checa()}">
+				</p:commandButton>
 		</p:panelGrid>
 	</h:form>
 

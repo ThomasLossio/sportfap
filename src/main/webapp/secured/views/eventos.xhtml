@@ -39,18 +39,33 @@
 	</p:toolbar>
 	<!-- Menu -->
 	<!-- conteudo -->
-	<div class="ContentSideSections" align="center">
-		<p:panel id="painel" style="min-width:300px;min-height:350px;">
-			<h3 style="margin-top: 0">Sportfap 2016</h3>
-			<p>O Sportfap! é uma ferramenta online para criação e
-				gerenciamento de múltiplos tipos de campeonatos. Você pode utilizar
-				essa aplicação para torneios de esportes, como futebol e basquete,
-				para competições de jogos eletrônicos.</p>
-
-
-		</p:panel>
-	</div>
-
+	
+	<div align="center">
+	<p:panel id="painel" style="min-width:300px;min-height:350px;">
+	    <h3 style="margin-top:0">Eventos</h3>
+    <p:accordionPanel>
+        <p:tab title="Campeonato Interno 2016">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                <h:outputText
+                    value="Campeonato FAP 2016..." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Campeonato Interno 2015">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="/home/ibf321/git/sportfap/src/main/img" />
+                <h:outputText value="Campeonato FAP 2015..." />
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Campeonato Interno 2014">
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage name="demo/images/godfather/godfather3.jpg" />
+                <h:outputText value="Campeonato FAP 2014..." />
+            </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
+    </p:panel>
+</div>
 	<!-- conteudo -->
 	<div class="containerFooter">
 		<ui:insert name="footer">
