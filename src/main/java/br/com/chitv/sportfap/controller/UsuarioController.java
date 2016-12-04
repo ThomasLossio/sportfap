@@ -1,6 +1,5 @@
 package br.com.chitv.sportfap.controller;
 
-import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import java.util.List;
 
@@ -98,14 +97,14 @@ public class UsuarioController implements Serializable {
 		return usuario;
 	}
 
-	public void setJogador(Usuario usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
 	public String checa() {
 		boolean cert = usuarioDao.findByNomeSenha(usuario.getLogin(), usuario.getSenha());
 		if (cert) {
-			return "views/logado.xhtml";
+			return "views/admin/index.xhtml";
 		} else {
 			return "erro.xhtml";
 		}
