@@ -24,17 +24,18 @@
 
 	<p:toolbar id="tb">
 		<f:facet name="left">
-			<p:commandButton value="HOME" action="#{homeController.irPaginaHome()}"/>
-			<p:commandButton value="EVENTOS" action="#{homeController.irPaginaEvento()}"/>
+			<p:commandButton value="HOME"
+				action="#{homeController.irPaginaHome()}" />
+			<p:commandButton value="EVENTOS"
+				action="#{homeController.irPaginaEvento()}" />
 			<p:commandButton value="SOBRE"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
 		</f:facet>
 		<f:facet name="right">
-
 			<p:commandButton value="Login"
 				actionListener="#{productBean.setDialogPage('login')}"
-				oncomplete="PF('dialogWidget').show()" update="dialog" />
+				oncomplete="PF('dialogWidget').show()" />
 		</f:facet>
 	</p:toolbar>
 	<!-- Menu -->
