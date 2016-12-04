@@ -26,10 +26,10 @@ public class Time implements Serializable{
 	    private String nome;
 	    
 	    @Column(name = "CAPITAO", length = 60 )
-	    private int capitao;
+	    private String capitao;
 
 	    @Column(name = "FONE_CAPITAO", length = 10 )
-	    private int fone_capitao;
+	    private String fone_capitao;
 	    
 	    @OneToMany(mappedBy = "time")
 	    private List<Jogador> jogadores;
@@ -53,19 +53,19 @@ public class Time implements Serializable{
 			this.nome = nome;
 		}
 
-		public int getCapitao() {
+		public String getCapitao() {
 			return capitao;
 		}
 
-		public void setCapitao(int capitao) {
+		public void setCapitao(String capitao) {
 			this.capitao = capitao;
 		}
 
-		public int getFone_capitao() {
+		public String getFone_capitao() {
 			return fone_capitao;
 		}
 
-		public void setFone_capitao(int fone_capitao) {
+		public void setFone_capitao(String fone_capitao) {
 			this.fone_capitao = fone_capitao;
 		}
 
