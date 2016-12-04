@@ -1,63 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
 <h:head>
-	<title>Sportfap</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="title">SISTEMA</ui:insert></title>
+	<link rel="stylesheet" type="text/css"
+		href="#{facesContext.externalContext.requestContextPath}/static/css/style.css" />
 </h:head>
 
-<body>
+<h:body>
+
+	<!-- Menu -->
 	<p:layout style="min-width:300px;min-height:110px;">
 		<p:layoutUnit position="center">
 			<h1>SportFAP</h1>
-
 		</p:layoutUnit>
+
 	</p:layout>
-	<h:form>
-		<p:toolbar id="tb">
-			<f:facet name="left">
-				<p:commandButton type="button" value="HOME" />
-				<p:commandButton type="button" value="EVENTOS" />
-			</f:facet>
-			<f:facet name="right">
 
-				<p:commandButton actionListener="#{usuarioController.login()}"
-					type="button" value="LOGIN" />
-			</f:facet>
-		</p:toolbar>
-	</h:form>
-	<p:layout style="min-width:400px;min-height:200px;">
-		<p:layoutUnit position="west" resizable="true" size="200" minSize="40"
-			maxSize="300">
-      <form action="${request.contextPath}/logout" method="post">
-				
-			</form>
-			<h:form id="form">
-				<p>
-					<b>Olá, <h:outputText value="#{jogadorController.jogador.nome}" />!
-					</b>
-				</p>
-				<h:commandButton value="Novo Usário"
-					action="#{jogadorController.irPaginaSalvar()}" />
+	<p:toolbar id="tb">
+		<f:facet name="left">
+			<p:commandButton value="HOME"
+				action="#{homeController.irPaginaHome()}" />
+			<p:commandButton type="button" value="EVENTOS" lue="HOME"
+				action="#{homeController.irPaginaHome()}" />
+			<p:commandButton type="button" value="TIME" />
+			<p:commandButton type="button" value="JOGADOR" />
+			<p:commandButton value="SOBRE"
+				actionListener="#{productBean.setDialogPage('sobre')}"
+				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
+		</f:facet>
+		<f:facet name="right">
 
-				<h:dataTable id="jogadorDT" value="#{JogadorController.jogador}"
-					var="jogador">
-				</h:dataTable>
-				<input type="hidden" name="#{_csrf.parameterName}"
-					value="#{_csrf.token}" />
-			</h:form>
-    </p:layoutUnit>
+			<p:commandButton value="Login"
+				actionListener="#{productBean.setDialogPage('login')}"
+				oncomplete="PF('dialogWidget').show()" update="dialog" />
+		</f:facet>
+	</p:toolbar>
+	<!-- Menu -->
+	<!-- conteudo -->
+	<div class="containerFooter">
+		<ui:insert name="footer">
+			<ui:include src="/secured/views/admin/indexTeste.xhtml"></ui:include>
+		</ui:insert>
+	</div>
+	<!-- conteudo -->
+	<!-- rodaPe -->
+	<div class="containerFooter">
+		<ui:insert name="footer">
+			<ui:include src="/resources/template/rodaPe.xhtml"></ui:include>
+		</ui:insert>
+	</div>
+	<!-- rodaPe -->
+	<!-- DialogoLogin -->
+	<p:dialog id="dialog" widgetVar="dialogWidget">
 
-		<p:layoutUnit position="center">
-			Center
-		</p:layoutUnit>
-	</p:layout>
-</body>
+		<ui:include src="/secured/views/login.xhtml" />
 
+	</p:dialog>
+	<!-- DialogoLogin -->
+	<!-- DialogoSobre -->
+	<p:dialog id="dialogSobre" header="Sportfap" widgetVar="dialogWidget1"
+		modal="true" height="150" width="700">
+
+		<ui:include src="/secured/views/sobre.xhtml" />
+
+	</p:dialog>
+	<!-- DialogoSobre -->
+</h:body>
 </html>

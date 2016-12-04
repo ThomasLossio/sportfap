@@ -24,7 +24,7 @@
 
 	<p:toolbar id="tb">
 		<f:facet name="left">
-			<p:commandButton type="button" value="HOME" />
+			<p:commandButton value="HOME" action="#{homeController.irPaginaHome()}"/>
 			<p:commandButton type="button" value="EVENTOS" />
 			<p:commandButton value="SOBRE"
 				actionListener="#{productBean.setDialogPage('sobre')}"
