@@ -18,6 +18,10 @@ public class HomeController {
 	}
 
 	public String irPaginaHome() {
-		return "home?redirect-true";
+		return "/secured/home.jsf?faces-redirect=true";
+	}
+
+	public String irPaginaEvento(){
+		return "/secured/views/eventos.xhtml?faces-redirect=true";
 	}
 }
