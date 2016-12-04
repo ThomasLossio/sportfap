@@ -82,9 +82,7 @@ public class JogadorController implements Serializable {
 	}
 
 	public String voltar() {
-
 		return "/secured/views/admin/index?faces-redirect=true";
-
 	}
 
 	public List<Jogador> getlistaJogadores() {
