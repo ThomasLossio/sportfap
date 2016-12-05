@@ -20,8 +20,19 @@ public class HomeController {
 	public String irPaginaHome() {
 		return "/secured/home.jsf?faces-redirect=true";
 	}
+	
+	public String irPaginaHomeAdmin() {
+		return "/secured/views/admin/index.xhtml.jsf?faces-redirect=true";
+	}
 
-	public String irPaginaEvento(){
+	public String irPaginaEventos(){
 		return "/secured/views/eventos.xhtml?faces-redirect=true";
 	}
+	public String irPaginaEventosAdmin(){
+		return "/secured/views/admin/eventos/eventos.xhtml?faces-redirect=true";
+	}
+	public String irPaginaTimeAdmin() {
+		return "/secured/views/admin/time/testeCadastroTime.xhtml?faces-redirect=true";
+	}
+	
 }

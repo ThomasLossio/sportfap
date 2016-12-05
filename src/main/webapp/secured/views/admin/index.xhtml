@@ -24,19 +24,25 @@
 
 	<p:toolbar id="tb">
 		<f:facet name="left">
-			<p:commandButton value="HOME"
-				action="#{homeController.irPaginaHome()}" />
-			<p:commandButton type="button" value="EVENTOS" lue="HOME"
-				action="#{homeController.irPaginaHome()}" />
-			<p:commandButton type="button" value="TIME" />
-			<p:commandButton type="button" value="JOGADOR" />
-			<p:commandButton value="SOBRE"
+			<p:commandButton value="HOME" style="color:#63b8ff"
+				action="#{homeController.irPaginaHomeAdmin()}" />
+
+			<p:commandButton type="button" value="EVENTOS" style="color:#63b8ff"
+				action="#{homeController.irPaginaEventosAdmin()}" />
+				
+			<p:commandButton type="button" value="TIME" style="color:#63b8ff"
+				action="#{homeController.irPaginaTimeAdmin()}" />
+				
+			<p:commandButton type="button" value="JOGADOR" style="color:#63b8ff" />
+			
+			<p:commandButton value="SOBRE" style="color:#63b8ff"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
+				
 		</f:facet>
 		<f:facet name="right">
 
-			<p:commandButton value="Login"
+			<p:commandButton value="Login" style="color:#63b8ff"
 				actionListener="#{productBean.setDialogPage('login')}"
 				oncomplete="PF('dialogWidget').show()" update="dialog" />
 		</f:facet>

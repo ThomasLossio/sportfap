@@ -17,48 +17,43 @@
 	<!-- Menu -->
 	<p:layout style="min-width:300px;min-height:110px;">
 		<p:layoutUnit position="center">
-			<h1 style="color: #63b8ff">SportFAP</h1>
+			<h1>SportFAP</h1>
 		</p:layoutUnit>
+
 	</p:layout>
+
 	<p:toolbar id="tb">
 		<f:facet name="left">
-			<p:commandButton value="HOME" style="color:#63b8ff"
+			<p:commandButton value="HOME"
 				action="#{homeController.irPaginaHome()}" />
-			<p:commandButton value="EVENTOS" style="color:#63b8ff"
-				action="#{homeController.irPaginaEventos()}" />
-			<p:commandButton value="SOBRE" style="color:#63b8ff"
+			<p:commandButton type="button" value="EVENTOS" lue="HOME"
+				action="#{homeController.irPaginaHome()}" />
+			<p:commandButton type="button" value="TIME" />
+			<p:commandButton type="button" value="JOGADOR" />
+			<p:commandButton value="SOBRE"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
 		</f:facet>
 		<f:facet name="right">
-			<p:commandButton value="Login" style="color:#63b8ff"
+
+			<p:commandButton value="Login"
 				actionListener="#{productBean.setDialogPage('login')}"
-				oncomplete="PF('dialogWidget').show()" />
+				oncomplete="PF('dialogWidget').show()" update="dialog" />
 		</f:facet>
 	</p:toolbar>
 	<!-- Menu -->
 	<!-- conteudo -->
-	<div class="ContentSideSections" align="center">
-		<p:panel id="painel" style="min-width:300px;min-height:350px;">
-			<h3 style="margin-top: 0">Sportfap 2016</h3>
-			<p>O Sportfap! é uma ferramenta online para criação e
-				gerenciamento de múltiplos tipos de campeonatos. Você pode utilizar
-				essa aplicação para torneios de esportes, como futebol e basquete,
-				para competições de jogos eletrônicos.</p>
-
-
-		</p:panel>
-	</div>
-
+	<p:commandButton value="HOME" action="#{homeController.irPaginaHome()}" />
+	<p:commandButton type="button" value="EVENTOS" lue="HOME"
+		action="#{homeController.irPaginaHome()}" />
 	<!-- conteudo -->
-	<!-- templeteRodaPe -->
+	<!-- rodaPe -->
 	<div class="containerFooter">
 		<ui:insert name="footer">
 			<ui:include src="/resources/template/rodaPe.xhtml"></ui:include>
 		</ui:insert>
 	</div>
-	<!-- templeteRodaPe -->
-	<!-- dialogos -->
+	<!-- rodaPe -->
 	<!-- DialogoLogin -->
 	<p:dialog id="dialog" widgetVar="dialogWidget">
 
@@ -74,6 +69,5 @@
 
 	</p:dialog>
 	<!-- DialogoSobre -->
-	<!-- dialogos -->
 </h:body>
 </html>
