@@ -1,6 +1,7 @@
 package br.com.chitv.sportfap.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,6 +33,39 @@ public class Evento implements Serializable{
     @Column(name = "NOME", length = 50, nullable = false)
     private String nome;
     
+    @Column(name = "DATA", nullable = false)
+    private Date data;	
+    
+    @Column(name = "TIPO", length = 1, nullable = false)
+    private char tipo;
+    
+    @Column(name = "REGULAMENTO", length = 1500, nullable = false)
+    private String regulamento;
+    
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public char getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(char tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getRegulamento() {
+		return regulamento;
+	}
+
+	public void setRegulamento(String regulamento) {
+		this.regulamento = regulamento;
+	}
+
 	public Long getId() {
 		return id;
 	}
