@@ -8,8 +8,7 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><ui:insert name="title">SISTEMA</ui:insert></title>
-	<link rel="stylesheet" type="text/css"
-		href="#{facesContext.externalContext.requestContextPath}/static/css/style.css" />
+
 </h:head>
 
 <h:body>
@@ -17,58 +16,49 @@
 	<!-- Menu -->
 	<p:layout style="min-width:300px;min-height:110px;">
 		<p:layoutUnit position="center">
-			<h1>SportFAP</h1>
+			<h1 style="color: #63b8ff">SportFAP</h1>
 		</p:layoutUnit>
-
 	</p:layout>
-
 	<p:toolbar id="tb">
 		<f:facet name="left">
-			<p:commandButton value="HOME" style="color:#63b8ff"
-				action="#{homeController.irPaginaHomeAdmin()}" />
-
-			<p:commandButton type="button" value="EVENTOS" style="color:#63b8ff"
-				action="#{homeController.irPaginaEventosAdmin()}" />
-				
-			<p:commandButton type="button" value="TIME" style="color:#63b8ff"
-				action="#{homeController.irPaginaTimeAdmin()}" />
-				
-			<p:commandButton type="button" value="JOGADOR" style="color:#63b8ff" />
-			
-			<p:commandButton value="SOBRE" style="color:#63b8ff"
+			<p:commandButton value="Home" style="color:#63b8ff"
+				action="#{homeAdminController.irPaginaHomeAdmin()}" />
+			<p:commandButton value="Eventos" style="color:#63b8ff"
+				action="#{homeAdminController.irPaginaEventosAdmin()}" />
+				<p:commandButton value="Time" style="color:#63b8ff"
+				action="#{homeAdminController.irPaginaTimeAdmin()}" />
+			<p:commandButton value="Sobre" style="color:#63b8ff"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
-				
 		</f:facet>
 		<f:facet name="right">
-
-			<p:commandButton value="Login" style="color:#63b8ff"
-				actionListener="#{productBean.setDialogPage('login')}"
-				oncomplete="PF('dialogWidget').show()" update="dialog" />
+			<p:commandButton value="Logof" style="color:#63b8ff"/>
 		</f:facet>
 	</p:toolbar>
 	<!-- Menu -->
 	<!-- conteudo -->
-	<div class="containerFooter">
-		<ui:insert name="footer">
-			<!-- <ui:include src="/secured/views/admin/eventos/cadastrar.xhtml"></ui:include>  -->
-		</ui:insert>
+	<div class="ContentSideSections" align="center">
+		<p:panel id="painel" style="min-width:300px;min-height:350px;">
+			<h3 style="margin-top: 0">Sportfap 2016</h3>
+			<p>O Sportfap! é uma ferramenta online para criação e
+				gerenciamento de múltiplos tipos de campeonatos. Você pode utilizar
+				essa aplicação para torneios de esportes, como futebol e basquete,
+				para competições de jogos eletrônicos.</p>
+
+
+		</p:panel>
 	</div>
+
 	<!-- conteudo -->
-	<!-- rodaPe -->
+	<!-- templeteRodaPe -->
 	<div class="containerFooter">
 		<ui:insert name="footer">
 			<ui:include src="/resources/template/rodaPe.xhtml"></ui:include>
 		</ui:insert>
 	</div>
-	<!-- rodaPe -->
-	<!-- DialogoLogin -->
-	<p:dialog id="dialog" widgetVar="dialogWidget">
+	<!-- templeteRodaPe -->
 
-		<ui:include src="/secured/views/login.xhtml" />
-
-	</p:dialog>
-	<!-- DialogoLogin -->
+	<!-- dialogos -->
 	<!-- DialogoSobre -->
 	<p:dialog id="dialogSobre" header="Sportfap" widgetVar="dialogWidget1"
 		modal="true" height="150" width="700">
@@ -77,5 +67,6 @@
 
 	</p:dialog>
 	<!-- DialogoSobre -->
+	<!-- dialogos -->
 </h:body>
 </html>

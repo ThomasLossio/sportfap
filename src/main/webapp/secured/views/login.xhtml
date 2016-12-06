@@ -1,24 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
 <h:head>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="title">SISTEMA</ui:insert></title>
+	<link rel="stylesheet" type="text/css"
+		href="#{facesContext.externalContext.requestContextPath}/static/css/style.css" />
 </h:head>
-<h:body>
-	<h:form>
-		<p:panelGrid columns="2">
-			<p:outputLabel for="nomeUsuario" value="Login Usuário:" />
-			<p:inputText id="nomeUsuario"
-				value="#{usuarioController.usuario.login}" />
-			<p:outputLabel for="senha" value="Senha:" />
-			<p:password id="senha" value="#{usuarioController.usuario.senha}" />
-			<p:commandButton value="Entrar" icon="ui-icon-star"
-				action="#{usuarioController.checa()}">
-			</p:commandButton>
-		</p:panelGrid>
-	</h:form>
 
+<h:body>
+
+	<!-- Menu -->
+	<p:layout style="min-width:300px;min-height:110px;">
+		<p:layoutUnit position="center">
+			<h1 style="color: #63b8ff">SportFAP</h1>
+		</p:layoutUnit>
+	</p:layout>
+	<p:toolbar id="tb">
+		<f:facet name="left">
+			<p:commandButton value="HOME" style="color:#63b8ff"
+				action="#{homeController.irPaginaHome()}" />
+			<p:commandButton value="EVENTOS" style="color:#63b8ff"
+				action="#{homeController.irPaginaEventos()}" />
+			<p:commandButton value="SOBRE" style="color:#63b8ff"
+				actionListener="#{productBean.setDialogPage('sobre')}"
+				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
+		</f:facet>
+		<f:facet name="right">
+			<p:commandButton value="Login" style="color:#63b8ff"
+				action="#{homeController.irPaginaLogin()}"/>
+		</f:facet>
+	</p:toolbar>
+	<!-- Menu -->
+	<!-- conteudo -->
+	<h:form>
+		<div  align="center">
+			<p:panel id="painel" style="min-width:300px;min-height:250px;">
+				<p:panelGrid columns="2">
+					<p:outputLabel for="nomeUsuario" value="Login Usuário:" />
+					<p:inputText id="nomeUsuario"
+						value="#{usuarioController.usuario.login}" />
+					<p:outputLabel for="senha" value="Senha:" />
+					<p:password id="senha" value="#{usuarioController.usuario.senha}" />
+					<p:commandButton value="Entrar" icon="ui-icon-star"
+						action="#{usuarioController.checa()}">
+					</p:commandButton>
+				</p:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+	<!-- conteudo -->
+	<!-- templeteRodaPe -->
+	<div class="containerFooter">
+		<ui:insert name="footer">
+			<ui:include src="/resources/template/rodaPe.xhtml"></ui:include>
+		</ui:insert>
+	</div>
+	<!-- templeteRodaPe -->
+	<!-- dialogos -->
+	<!-- DialogoSobre -->
+	<p:dialog id="dialogSobre" header="Sportfap" widgetVar="dialogWidget1"
+		modal="true" height="150" width="700">
+
+		<ui:include src="/secured/views/sobre.xhtml" />
+
+	</p:dialog>
+	<!-- DialogoSobre -->
+	<!-- dialogos -->
 </h:body>
 </html>

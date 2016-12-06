@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -7,25 +7,127 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
-
 <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="title">SISTEMA</ui:insert></title>
 
 </h:head>
+
 <h:body>
 
-	<h:form id="cadastrarTimeForm" prependId="true">
+	<!-- Menu -->
+	<p:layout style="min-width:300px;min-height:110px;">
+		<p:layoutUnit position="center">
+			<h1 style="color: #63b8ff">SportFAP</h1>
+		</p:layoutUnit>
+	</p:layout>
+	<p:toolbar id="tb">
+		<f:facet name="left">
+			<p:commandButton value="Home" style="color:#63b8ff"
+				action="#{homeAdminController.irPaginaHomeAdmin()}" />
+			<p:commandButton value="Eventos" style="color:#63b8ff"
+				action="#{homeAdminController.irPaginaEventosAdmin()}" />
+			<p:commandButton value="Time" style="color:#63b8ff"
+				action="#{homeAdminController.irPaginaTimeAdmin()}" />
+			<p:commandButton value="Sobre" style="color:#63b8ff"
+				actionListener="#{productBean.setDialogPage('sobre')}"
+				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
+		</f:facet>
+		<f:facet name="right">
+			<p:commandButton value="Logof" style="color:#63b8ff" />
+		</f:facet>
+	</p:toolbar>
+	<!-- Menu -->
+	<!-- conteudo -->
+	<h:form id="cadastrarTimeForm">
 		<p:growl id="growl" showDetail="true" sticky="true" />
+		<div class="ContentSideSections" align="center">
+			<h3 style="margin-top: 0">Sportfap 2016 - Eventos</h3>
+		</div>
+		<p:panel id="panel" header="Cadastrar Time" style="color:#63b8ff">
 
-		<p:panel header="Cadastrar Time">
 			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel for="nome" value="Nome: " />
-				<p:inputText id="nome" value="#{timeController.time.nome}" pt:placeholder="Time"/>
-				
-				
+				<p:outputLabel for="nome" value="Nome:" style="color:#63b8ff" />
+				<p:inputText id="nome" value="#{timeController.time.nome}"
+					pt:placeholder="Nome" />
+				<p:outputLabel id="capitao_o" value="Capitão" style="color:#63b8ff" />
+				<p:inputText id="numero" value="#{timeController.time.capitao}"
+					pt:placeholder="Capitão" />
+
+				<p:outputLabel id="fone_capitao_o" value="Fone Capitão"
+					style="color:#63b8ff" />
+				<p:inputText id="fone_capitao"
+					value="#{jogadorController.jogador.semestre}"
+					pt:placeholder="Fone Capitão" />
 			</h:panelGrid>
-			<p:commandButton value="Salvar" action="#{timeController.salvar}"/>
-			<p:commandButton value="Voltar" action="#{timeController.voltar}" />
+			<!-- inicio do cadastro de jogadores -->
+			<h:form id="cadastrarJogador">
+				<p:growl id="growl" showDetail="true" sticky="true" />
+
+				<p:panel id="panel" header="Cadastrar Jogadores">
+
+					<h:panelGrid columns="2" cellpadding="5">
+						<p:outputLabel for="nome" value="Nome: " style="color:#63b8ff" />
+						<p:inputText id="nome" value="#{jogadorController.jogador.nome}"
+							pt:placeholder="Nome" />
+						<p:outputLabel id="numero_o" value="Numero" style="color:#63b8ff" />
+						<p:inputText id="numero"
+							value="#{jogadorController.jogador.numero}"
+							pt:placeholder="Numero" />
+
+						<p:outputLabel id="semestre_o" value="Semestre"
+							style="color:#63b8ff" />
+						<p:inputText id="semestre"
+							value="#{jogadorController.jogador.semestre}"
+							pt:placeholder="Semestre" />
+
+						<p:outputLabel id="curso_o" value="curso" style="color:#63b8ff" />
+						<p:inputText id="curso" value="#{jogadorController.jogador.curso}"
+							pt:placeholder="Curso" />
+					</h:panelGrid>
+
+					<p:commandButton value="Salvar"
+						action="#{timeController.time.jogadores.add}" />
+				</p:panel>
+			</h:form>
+			<!-- fim do cadastro de jogadores -->
+
+			<!-- visualizar lista de jogadores-->
+			<p:dataList value="#{timeController.time.jogadores.get()}"
+				var="jogador" type="ordered">
+				<f:facet name="header">
+           Jogadores
+        </f:facet>
+         #{jogador.nome}, #{jogador.numero},#{jogador.semestre}
+			</p:dataList>
+			<!-- visualizar lista de jogadores-->
+
+
+			<!-- salvar time -->
+			<p:commandButton value="Salvar" update="panel"
+				action="#{timeController.salvar()}" />
+			<!-- salvar time -->
+			<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
 		</p:panel>
 	</h:form>
+	<!-- conteudo -->
+	<!-- templeteRodaPe -->
+	<div class="containerFooter">
+		<ui:insert name="footer">
+			<ui:include src="/resources/template/rodaPe.xhtml"></ui:include>
+		</ui:insert>
+	</div>
+	<!-- templeteRodaPe -->
+
+	<!-- dialogos -->
+	<!-- DialogoSobre -->
+	<p:dialog id="dialogSobre" header="Sportfap" widgetVar="dialogWidget1"
+		modal="true" height="150" width="700">
+
+		<ui:include src="/secured/views/sobre.xhtml" />
+
+	</p:dialog>
+	<!-- DialogoSobre -->
+	<!-- dialogos -->
 </h:body>
 </html>

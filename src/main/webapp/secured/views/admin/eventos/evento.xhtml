@@ -8,7 +8,7 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><ui:insert name="title">SISTEMA</ui:insert></title>
-	
+
 </h:head>
 
 <h:body>
@@ -22,28 +22,47 @@
 	<p:toolbar id="tb">
 		<f:facet name="left">
 			<p:commandButton value="Home" style="color:#63b8ff"
-				action="#{homeController.irPaginaHome()}" />
+				action="#{homeAdminController.irPaginaHomeAdmin()}" />
 			<p:commandButton value="Eventos" style="color:#63b8ff"
-				action="#{homeController.irPaginaEventos()}" />
+				action="#{homeAdminController.irPaginaEventosAdmin()}" />
+			<p:commandButton value="Time" style="color:#63b8ff"
+				action="#{homeAdminController.irPaginaTimeAdmin()}" />
 			<p:commandButton value="Sobre" style="color:#63b8ff"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
 		</f:facet>
 		<f:facet name="right">
-			<p:commandButton value="Login" style="color:#63b8ff"
-				action="#{homeController.irPaginaLogin()}"/>
+			<p:commandButton value="Logof" style="color:#63b8ff"/>
 		</f:facet>
 	</p:toolbar>
 	<!-- Menu -->
 	<!-- conteudo -->
 	<div class="ContentSideSections" align="center">
 		<p:panel id="painel" style="min-width:300px;min-height:350px;">
-			<h3 style="margin-top: 0">Sportfap 2016</h3>
-			<p>O Sportfap! é uma ferramenta online para criação e
-				gerenciamento de múltiplos tipos de campeonatos. Você pode utilizar
-				essa aplicação para torneios de esportes, como futebol e basquete,
-				para competições de jogos eletrônicos.</p>
+			<h3 style="margin-top: 0">Sportfap 2016 - Eventos</h3>
+			<h:form id="cadastrarTimeForm">
+				<p:growl id="growl" showDetail="true" sticky="true" />
 
+				<p:panel id="panel" header="Cadastrar Jogadores">
+
+					<h:panelGrid columns="2" cellpadding="5">
+						<p:outputLabel for="nome" value="Nome: " />
+						<p:inputText id="nome" value="#{eventoController.evento.usuario}" />
+						<p:outputLabel id="tipo_o" value="Tipo" />
+						<p:inputText id="tipo" value="#{eventoController.evento.tipo}" />
+						<p:outputLabel id="fone_capitao_o" value="Fone Capitão" />
+						<p:inputText id="fone_capitao"
+							value="#{eventoController.evento.regulamento}"
+							 />
+					</h:panelGrid>
+
+					<p:commandButton value="Salvar" update="panel"
+						action="#{timeController.salvar()}" />
+
+					<p:commandButton value="Voltar"
+						action="#{jogadorController.voltar}" />
+				</p:panel>
+			</h:form>
 
 		</p:panel>
 	</div>
@@ -56,8 +75,8 @@
 		</ui:insert>
 	</div>
 	<!-- templeteRodaPe -->
-	
-	<!-- dialogos -->	
+
+	<!-- dialogos -->
 	<!-- DialogoSobre -->
 	<p:dialog id="dialogSobre" header="Sportfap" widgetVar="dialogWidget1"
 		modal="true" height="150" width="700">

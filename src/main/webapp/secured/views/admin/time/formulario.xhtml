@@ -12,31 +12,27 @@
 </h:head>
 <h:body>
 	
-	<h:form id="cadastrarJogador">
+	<h:form id="cadastrarTimeForm">
 		<p:growl id="growl" showDetail="true" sticky="true" />
 
 		<p:panel id="panel" header="Cadastrar Jogadores">
 
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="nome" value="Nome: " />
-				<p:inputText id="nome" value="#{jogadorController.jogador.nome}"
+				<p:inputText id="nome" value="#{timeController.time.nome}"
 					pt:placeholder="Nome" />
-				<p:outputLabel id="numero_o" value="Numero" />
-				<p:inputText id="numero" value="#{jogadorController.jogador.numero}"
-					pt:placeholder="Numero" />
+				<p:outputLabel id="capitao_o" value="Capitão" />
+				<p:inputText id="numero" value="#{timeController.time.capitao}"
+					pt:placeholder="Capitão" />
 
-				<p:outputLabel id="semestre_o" value="Semestre" />
-				<p:inputText id="semestre"
+				<p:outputLabel id="fone_capitao_o" value="Fone Capitão" />
+				<p:inputText id="fone_capitao"
 					value="#{jogadorController.jogador.semestre}"
-					pt:placeholder="Semestre" />
-
-				<p:outputLabel id="curso_o" value="curso" />
-				<p:inputText id="curso" value="#{jogadorController.jogador.curso}"
-					pt:placeholder="Curso" />
+					pt:placeholder="Fone Capitão" />
 			</h:panelGrid>
 
 			<p:commandButton value="Salvar" update="panel"
-				action="#{jogadorController.salvar}" />
+				action="#{timeController.salvar()}" />
 
 			<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
 		</p:panel>

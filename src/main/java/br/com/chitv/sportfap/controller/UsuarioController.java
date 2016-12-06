@@ -104,7 +104,7 @@ public class UsuarioController implements Serializable {
 	public String checa() {
 		boolean cert = usuarioDao.findByNomeSenha(usuario.getLogin(), usuario.getSenha());
 		if (cert) {
-			return "views/admin/index.xhtml";
+			return "/secured/views/admin/index.jsf?faces-redirect=true";
 		} else {
 			return "erro.xhtml";
 		}
