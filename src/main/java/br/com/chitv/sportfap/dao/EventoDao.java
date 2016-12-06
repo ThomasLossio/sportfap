@@ -40,17 +40,7 @@ public class EventoDao {
 	public void atualizar(Evento evento) {
 		this.em.merge(evento);
 	}
-
-/*	public Jogador findByNome(String nome) {
-		String queryStr = "select u from Usuario u where u.nome = :nome";
-		TypedQuery<Jogador> query = this.em.createQuery(queryStr, Jogador.class);
-		query.setParameter("nome", nome);
-		List<Jogador> jogadores = query.getResultList();
-		return jogadores.isEmpty() ? null : jogadores.get(0);
-	}
-*/	
 	
-	//Esse método está funcionando perfeitamente, explicarei pessoalmente para as demais partes
 	@Transactional
 	public Evento findById(Long id){
 		String queryStr = "select u from Evento u where u.id = :id";
