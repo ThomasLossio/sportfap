@@ -36,19 +36,19 @@ public class RequisicoesTimes {
     	time.setNome(nome);
     	time.setCapitao(capitao);
     	time.setFone_capitao(fone_capitao);
-    	HttpURLConnection connection = null;
-    	try{
-	    	URL url = new URL("http://localhost:8080/sportfap/rest/evento/" + id_Evento);
-	    	connection = (HttpURLConnection)url.openConnection();
-	    	InputStream content = connection.getInputStream();
-	    	Evento evento = new Evento();
-	    	
-	    	
-    	} catch (IOException ex){
-    		throw new RuntimeException();
-    	} finally {
-			connection.disconnect();
-		}
+//    	HttpURLConnection connection = null;
+//    	try{
+//	    	URL url = new URL("http://localhost:8080/sportfap/rest/evento/" + id_Evento);
+//	    	connection = (HttpURLConnection)url.openConnection();
+//	    	InputStream content = connection.getInputStream();
+//	    	Evento evento = new Evento();
+//	    	
+//	    	
+//    	} catch (IOException ex){
+//    		throw new RuntimeException();
+//    	} finally {
+//			connection.disconnect();
+//		}
 
     	this.timeDao.salvar(time);
     	return Response.status(200).entity("Feito").build();

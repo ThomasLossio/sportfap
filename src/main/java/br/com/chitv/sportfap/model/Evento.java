@@ -37,7 +37,7 @@ public class Evento implements Serializable{
     private Date data;	
     
     @Column(name = "TIPO", length = 1, nullable = false)
-    private char tipo;
+    private String tipo;
     
     @Column(name = "REGULAMENTO", length = 1500, nullable = false)
     private String regulamento;
@@ -50,11 +50,11 @@ public class Evento implements Serializable{
 		this.data = data;
 	}
 
-	public char getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(char tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 

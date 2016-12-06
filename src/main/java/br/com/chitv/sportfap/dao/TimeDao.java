@@ -53,7 +53,7 @@ public class TimeDao {
 	//Esse método está funcionando perfeitamente, explicarei pessoalmente para as demais partes
 	@Transactional
 	public Time findById(Long id){
-		String queryStr = "select u from Jogador u where u.id = :id";
+		String queryStr = "select u from Time u where u.id = :id";
 		TypedQuery<Time> query = this.em.createQuery(queryStr, Time.class);
 		query.setParameter("id", id);
 		List<Time> times = query.getResultList();

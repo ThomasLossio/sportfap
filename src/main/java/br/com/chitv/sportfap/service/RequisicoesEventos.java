@@ -1,5 +1,8 @@
 package br.com.chitv.sportfap.service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -28,10 +31,25 @@ public class RequisicoesEventos {
     }
 
     @GET @Path("/salvarEvento/{nome}/{data}/{tipo}/{regulamento}") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
-    public Response getSalvaEventoJSON(@PathParam("nome") String nome, @PathParam("data") Date data, @PathParam("tipo") char tipo, @PathParam("regulamento") String regulamento){
+    public Response getSalvaEventoJSON(@PathParam("nome") String nome, @PathParam("data") String data, @PathParam("tipo") String tipo, @PathParam("regulamento") String regulamento){
     	Evento evento = new Evento();
+    	System.out.println(nome + "\n");
+    	System.out.println(new Date() + "\n");
+    	System.out.println(tipo + "\n");
+    	System.out.println(regulamento + "\n");
     	evento.setNome(nome);
-    	evento.setData(data);
+    	DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    	Date dataC;
+		try {
+			dataC = (Date)format.parse(data);
+	    	evento.setData(dataC);
+	    	
+	    	System.out.println(dataC);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
     	evento.setTipo(tipo);
     	evento.setRegulamento(regulamento);
     	this.eventoDao.salvar(evento);
