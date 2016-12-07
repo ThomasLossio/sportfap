@@ -13,15 +13,13 @@ import javax.transaction.Transactional;
 
 import org.primefaces.context.RequestContext;
 
-
 import br.com.chitv.sportfap.dao.TimeDao;
+import br.com.chitv.sportfap.model.Jogador;
 import br.com.chitv.sportfap.model.Time;
-
 
 @Named
 @RequestScoped
 public class TimeController implements Serializable {
-
 
 	/**
 	 * 
@@ -29,7 +27,6 @@ public class TimeController implements Serializable {
 	private static final long serialVersionUID = 3288870853461444768L;
 
 	private Time time;
-
 	private List<Time> times;
 
 	@Inject
@@ -46,7 +43,6 @@ public class TimeController implements Serializable {
 		}
 		return this.times;
 	}
-
 
 	public String excluir() {
 		this.timeDao.excluir(this.time);
@@ -70,6 +66,7 @@ public class TimeController implements Serializable {
 		this.time = new Time();
 		return "../index.xhtml";
 	}
+
 	public String irPaginaTimes() {
 		return "../secured/views/admin/index.xhtml";
 	}
@@ -78,9 +75,10 @@ public class TimeController implements Serializable {
 		this.timeDao.salvar(this.time);
 		this.times = timeDao.listaTimes();
 		this.time = new Time();
-		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Time Cadastrado Com Sucesso!"));
-		 RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");
-		 return null;
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Time Cadastrado Com Sucesso!"));
+		RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");
+		return null;
 	}
 
 	public String voltar() {
@@ -102,6 +100,5 @@ public class TimeController implements Serializable {
 	public void setTime(Time time) {
 		this.time = time;
 	}
-	
 
 }
