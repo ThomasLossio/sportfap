@@ -15,7 +15,6 @@ import org.primefaces.context.RequestContext;
 
 import br.com.chitv.sportfap.dao.JogadorDao;
 import br.com.chitv.sportfap.model.Jogador;
-import br.com.chitv.sportfap.model.Time;
 
 
 @Named
@@ -28,6 +27,8 @@ public class JogadorController implements Serializable {
 
 	private List<Jogador> listaJogadores;
 
+	private List<Jogador> listaJogadoresTmp;
+	
 	@Inject
 	private JogadorDao jogadorDao;
 
@@ -75,6 +76,7 @@ public class JogadorController implements Serializable {
 
 	public String salvar() {
 		this.jogadorDao.salvar(this.jogador);
+		this.listaJogadoresTmp.add(this.jogador);
 		this.listaJogadores = jogadorDao.listaJogadores();
 		this.jogador = new Jogador();
 		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Jogador Cadastrado Com Sucesso!"));

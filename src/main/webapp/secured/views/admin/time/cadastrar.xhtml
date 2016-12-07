@@ -93,7 +93,7 @@
 			<!-- fim do cadastro de jogadores -->
 
 			<!-- visualizar lista de jogadores-->
-			<p:dataList value="#{jogadorController.jogadores}" var="jogador"
+			<p:dataList value="#{jogadorController.jogadoresTmp}" var="jogador"
 				type="ordered">
 				<f:facet name="header">
            Jogadores
@@ -107,7 +107,7 @@
 				<f:facet name="headerss">
            Times
            </f:facet>
-	         #{time.nome}, #{time.capitao}, #{time.jogadores.get(1).nome}
+	         #{time.nome}, #{time.capitao}, #{time.jogadores.get()}
          
 			
 			
@@ -117,7 +117,7 @@
 
 			<!-- salvar time -->
 			<p:commandButton value="Salvar" update="panel"
-				action="#{timeController.salvar(jogadorController.jogadores)}" />
+				action="#{timeController.salvar(jogadorController.jogadoresTmp)}" />
 			<!-- salvar time -->
 			<p:commandButton value="Voltar" action="#{jogadorController.voltar}" />
 		</p:panel>

@@ -37,7 +37,7 @@ public class TimeController implements Serializable {
 		this.time = new Time();
 	}
 
-	public List<Time> getUsuarios() {
+	public List<Time> getTimes() {
 		if (this.times == null || this.times.isEmpty()) {
 			this.times = this.timeDao.listaTimes();
 		}
@@ -71,11 +71,10 @@ public class TimeController implements Serializable {
 		return "../secured/views/admin/index.xhtml";
 	}
 
-	public String salvar(List<Jogador> jogadores) {
+	public String salvar() {
 		this.timeDao.salvar(this.time);
 		this.times = timeDao.listaTimes();
 		this.time = new Time();
-		this.time.setJogadores(jogadores);
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Time Cadastrado Com Sucesso!"));
 		RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");
@@ -101,4 +100,5 @@ public class TimeController implements Serializable {
 	public void setTime(Time time) {
 		this.time = time;
 	}
+
 }
