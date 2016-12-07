@@ -30,39 +30,6 @@ public class RequisicoesEventos {
         return this.eventoDao.findById(id);
     }
 
-    @GET @Path("/salvarEvento/{nome}/{data}/{tipo}/{regulamento}") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
-    public Response getSalvaEventoJSON(@PathParam("nome") String nome, @PathParam("data") String data, @PathParam("tipo") String tipo, @PathParam("regulamento") String regulamento){
-    	Evento evento = new Evento();
-    	System.out.println(nome + "\n");
-    	System.out.println(new Date() + "\n");
-    	System.out.println(tipo + "\n");
-    	System.out.println(regulamento + "\n");
-    	evento.setNome(nome);
-    	DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-    	Date dataC;
-		try {
-			dataC = (Date)format.parse(data);
-	    	evento.setData(dataC);
-	    	
-	    	System.out.println(dataC);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-    	evento.setTipo(tipo);
-    	evento.setRegulamento(regulamento);
-    	this.eventoDao.salvar(evento);
-    	return Response.status(200).entity("Feito").build();
-    }
-
-    @GET @Path("/excluirEvento/{id}") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
-    public Response getExcluiEventoJSON(@PathParam("id") Long id){    	
-           	
-    	this.eventoDao.excluir(this.eventoDao.findById(id));
-    	return Response.status(200).entity("Feito").build();
-    }
-
     //Ele pediu pra ver com a anotação @QueryParam
     @GET @Path("/listarEventos") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
     public List<Evento> getListaEventosJSON(){    	

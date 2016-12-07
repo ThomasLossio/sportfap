@@ -29,37 +29,6 @@ public class RequisicoesTimes {
     	
         return this.timeDao.findById(id);
     }
-//nome, capitao, fone-capitao
-    @GET @Path("/salvarTime/{nome}/{capitao}/{fone_capitao}/{id_Evento}") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
-    public Response getSalvaTimeJSON(@PathParam("nome") String nome, @PathParam("capitao") String capitao, @PathParam("fone_capitao") String fone_capitao, @PathParam("id_Evento") Long id_Evento){
-    	Time time = new Time();
-    	time.setNome(nome);
-    	time.setCapitao(capitao);
-    	time.setFone_capitao(fone_capitao);
-//    	HttpURLConnection connection = null;
-//    	try{
-//	    	URL url = new URL("http://localhost:8080/sportfap/rest/evento/" + id_Evento);
-//	    	connection = (HttpURLConnection)url.openConnection();
-//	    	InputStream content = connection.getInputStream();
-//	    	Evento evento = new Evento();
-//	    	
-//	    	
-//    	} catch (IOException ex){
-//    		throw new RuntimeException();
-//    	} finally {
-//			connection.disconnect();
-//		}
-
-    	this.timeDao.salvar(time);
-    	return Response.status(200).entity("Feito").build();
-    }
-
-    @GET @Path("/excluirTime/{id}") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
-    public Response getExcluiTimeJSON(@PathParam("id") Long id){    	
-           	
-    	this.timeDao.excluir(this.timeDao.findById(id));
-    	return Response.status(200).entity("Feito").build();
-    }
 
     //Ele pediu pra ver com a anotação @QueryParam
     @GET @Path("/listarTimes") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
@@ -68,6 +37,7 @@ public class RequisicoesTimes {
     	
     }    
 
+    
     @GET @Path("/listarTimesEvento") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
     public List<Time> getListaTimesEventoJSON(){    	
         return this.timeDao.listaTimes();
