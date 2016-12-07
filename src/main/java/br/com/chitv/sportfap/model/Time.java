@@ -3,7 +3,17 @@ package br.com.chitv.sportfap.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="time", schema="sportfap")
@@ -31,7 +41,7 @@ public class Time implements Serializable{
 	    @Column(name = "FONE_CAPITAO", length = 10 )
 	    private String fone_capitao;
 	    
-	    @OneToMany(mappedBy = "time")
+	    @OneToMany( mappedBy = "time")	
 	    private List<Jogador> jogadores;
 	    
 	    @ManyToMany(mappedBy = "times")
