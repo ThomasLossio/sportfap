@@ -1,6 +1,7 @@
 package br.com.chitv.sportfap.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -27,8 +28,16 @@ public class JogadorController implements Serializable {
 
 	private List<Jogador> listaJogadores;
 
-	private List<Jogador> listaJogadoresTmp;
+	private List<Jogador> listaJogadoresTmp = new ArrayList<Jogador>();
 	
+	public List<Jogador> getListaJogadoresTmp() {
+		return listaJogadoresTmp;
+	}
+
+	public void setListaJogadoresTmp(Jogador jogador) {
+		listaJogadoresTmp.add(jogador);
+	}
+
 	@Inject
 	private JogadorDao jogadorDao;
 
@@ -76,10 +85,10 @@ public class JogadorController implements Serializable {
 
 	public String salvar() {
 		this.jogadorDao.salvar(this.jogador);
-		this.listaJogadoresTmp.add(this.jogador);
-		this.listaJogadores = jogadorDao.listaJogadores();
+		this.listaJogadores = jogadorDao.listaJogadores();		
 		this.jogador = new Jogador();
-		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Jogador Cadastrado Com Sucesso!"));
+		this.listaJogadoresTmp.add(this.jogador);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Jogador Cadastrado Com Sucesso!"));
 		 RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");
 		 return null;
 	}

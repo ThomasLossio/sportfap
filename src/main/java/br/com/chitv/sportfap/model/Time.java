@@ -47,6 +47,16 @@ public class Time implements Serializable{
 	    @ManyToMany(mappedBy = "times")
 	    private List<Evento> eventos;
 
+	    private int id_jogador;
+	    
+		public int getId_jogador() {
+			return id_jogador;
+		}
+
+		public void setId_jogador(int id_jogador) {
+			this.id_jogador = id_jogador;
+		}
+
 		public Long getId() {
 			return id;
 		}

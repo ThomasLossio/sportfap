@@ -93,12 +93,13 @@
 			<!-- fim do cadastro de jogadores -->
 
 			<!-- visualizar lista de jogadores-->
-			<p:dataList value="#{jogadorController.jogadoresTmp}" var="jogador"
+			<p:dataList value="#{jogadorController.listaJogadoresTmp}" var="jogador"
 				type="ordered">
 				<f:facet name="header">
-           Jogadores
-        </f:facet>
-         #{jogador.nome}, #{jogador.numero},#{jogador.semestre}
+					<p:outputLabel id="tituloJog" value="Jogadores"
+						style="color:#63b8ff" />
+				</f:facet>
+      	   Nome: #{jogador.nome} | Numero: #{jogador.numero} | Semestre: #{jogador.semestre}
          
 			</p:dataList>
 
