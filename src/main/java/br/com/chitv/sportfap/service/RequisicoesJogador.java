@@ -62,5 +62,11 @@ public class RequisicoesJogador {
         return this.jogadorDao.listaJogadores();
     	
     }    
+
+    @GET @Path("/listarJogadoresTime") @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"} )
+    public List<Jogador> getListaJogadoresTimeJSON(){    	
+        return this.jogadorDao.listaJogadores();
+    	
+    }    
     
 }
