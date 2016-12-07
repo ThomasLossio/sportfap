@@ -24,16 +24,17 @@
 				action="#{homeAdminController.irPaginaHomeAdmin()}" />
 			<p:commandButton value="Eventos" style="color:#63b8ff"
 				action="#{homeAdminController.irPaginaEventosAdmin()}" />
-			<p:commandButton value="Time" style="color:#63b8ff"
+				<p:commandButton value="Time" style="color:#63b8ff"
 				action="#{homeAdminController.irPaginaTimeAdmin()}" />
 			<p:commandButton value="Sobre" style="color:#63b8ff"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
 		</f:facet>
 		<f:facet name="right">
-			<p:commandButton value="Logof" style="color:#63b8ff" />
+			<p:commandButton value="Logof" style="color:#63b8ff" action="#{homeController.irPaginaHome()}"/>
 		</f:facet>
 	</p:toolbar>
+	<!-- Menu -->
 	<!-- Menu -->
 	<!-- conteudo -->
 	<div class="ContentSideSections" align="center">
