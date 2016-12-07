@@ -22,11 +22,11 @@
 	</p:layout>
 	<p:toolbar id="tb">
 		<f:facet name="left">
-			<p:commandButton value="HOME" style="color:#63b8ff"
+			<p:commandButton value="Home" style="color:#63b8ff"
 				action="#{homeController.irPaginaHome()}" />
-			<p:commandButton value="EVENTOS" style="color:#63b8ff"
+			<p:commandButton value="Eventos" style="color:#63b8ff"
 				action="#{homeController.irPaginaEventos()}" />
-			<p:commandButton value="SOBRE" style="color:#63b8ff"
+			<p:commandButton value="Sobre" style="color:#63b8ff"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
 		</f:facet>
@@ -46,8 +46,9 @@
 						value="#{usuarioController.usuario.login}" />
 					<p:outputLabel for="senha" value="Senha:" />
 					<p:password id="senha" value="#{usuarioController.usuario.senha}" />
+					<p:growl id="growl" life="4000"/>
 					<p:commandButton value="Entrar" icon="ui-icon-star"
-						action="#{usuarioController.checa()}">
+						action="#{usuarioController.checa()}" update="growl">
 					</p:commandButton>
 				</p:panelGrid>
 			</p:panel>

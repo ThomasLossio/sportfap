@@ -17,49 +17,49 @@
 	<!-- Menu -->
 	<p:layout style="min-width:300px;min-height:110px;">
 		<p:layoutUnit position="center">
-			<h1 style="color:#63b8ff">SportFAP</h1>
+			<h1 style="color: #63b8ff">SportFAP</h1>
 		</p:layoutUnit>
 	</p:layout>
-	<p:toolbar id="tb1" >
+	<p:toolbar id="tb1">
 		<f:facet name="left">
-			<p:commandButton value="HOME" style="color:#63b8ff"
+			<p:commandButton value="Home" style="color:#63b8ff"
 				action="#{homeController.irPaginaHome()}" />
-			<p:commandButton value="EVENTOS" style="color:#63b8ff"
+			<p:commandButton value="Eventos" style="color:#63b8ff"
 				action="#{homeController.irPaginaEventos()}" />
-			<p:commandButton value="SOBRE" style="color:#63b8ff"
+			<p:commandButton value="Sobre" style="color:#63b8ff"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre1" />
 		</f:facet>
 		<f:facet name="right">
 			<p:commandButton value="Login" style="color:#63b8ff"
-				actionListener="#{productBean.setDialogPage('login')}"
-				oncomplete="PF('dialogWidget').show()" />
+				action="#{homeController.irPaginaLogin()}" />
+
 		</f:facet>
 	</p:toolbar>
 	<!-- Menu -->
 	<!-- conteudo -->
 	<div class="ContentSideSections" align="center">
-	<p:scrollPanel style="width:550px;height:300px">
-		
-		<h1 style="color:#63b8ff" align="center">EVENTOS</h1 >
-		<p:accordionPanel multiple="true" style="background-color:#63B8FF" >
-			<p:tab title="CAMPEONATO 2016" style="font-color:#FFFFFF" >
-				<h:panelGrid columns="2" cellpadding="10">
-					<h:outputText value="Sobre..." />
-				</h:panelGrid>
-			</p:tab>
-			<p:tab title="CAMPEONATO 2015">
-				<h:panelGrid columns="2" cellpadding="10">
-					<h:outputText value="Sobre..." />
-				</h:panelGrid>
-			</p:tab>
-			<p:tab title="CAMPEONATO 2014">
-				<h:panelGrid columns="2" cellpadding="10">
-					<h:outputText value="Sobre..." />
-				</h:panelGrid>
-			</p:tab>
-		</p:accordionPanel>
-	
+		<p:scrollPanel style="width:950px;height:300px">
+
+			<h1 style="color: #63b8ff" align="center">EVENTOS</h1>
+			<p:accordionPanel multiple="true">
+				<p:tab title="CAMPEONATO 2016" style="font-color:#FFFFFF">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:outputText value="Sobre..." />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="CAMPEONATO 2015">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:outputText value="Sobre..." />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="CAMPEONATO 2014">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:outputText value="Sobre..." />
+					</h:panelGrid>
+				</p:tab>
+			</p:accordionPanel>
+
 		</p:scrollPanel>
 	</div>
 	<!-- conteudo -->
@@ -71,13 +71,7 @@
 	</div>
 	<!-- templeteRodaPe -->
 	<!-- dialogos -->
-	<!-- DialogoLogin -->
-	<p:dialog id="dialog" widgetVar="dialogWidget">
-
-		<ui:include src="/secured/views/login.xhtml" />
-
-	</p:dialog>
-	<!-- DialogoLogin -->
+	
 	<!-- DialogoSobre -->
 	<p:dialog id="dialogSobre1" header="Sportfap" widgetVar="dialogWidget1"
 		modal="true" height="150" width="700" style="color:#63b8ff">

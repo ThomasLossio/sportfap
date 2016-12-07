@@ -15,6 +15,7 @@ import org.primefaces.context.RequestContext;
 
 import br.com.chitv.sportfap.dao.JogadorDao;
 import br.com.chitv.sportfap.model.Jogador;
+import br.com.chitv.sportfap.model.Time;
 
 
 @Named

@@ -101,23 +101,30 @@ public class UsuarioController implements Serializable {
 		this.usuario = usuario;
 	}
 
+	public void addMensagem(String va) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, va, null);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
 	public String checa() {
 		boolean cert = usuarioDao.findByNomeSenha(usuario.getLogin(), usuario.getSenha());
 		if (cert) {
 			return "/secured/views/admin/index.jsf?faces-redirect=true";
 		} else {
-			return "erro.xhtml";
+			addMensagem("ERRO: Usuário ou Senha Incorreta");
+			return null;
 		}
 	}
 
-	private String teste(){
+	private String teste() {
 		return "views/login.xhtml";
 	}
-	
+
 	public String login() {
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", teste()));
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", teste()));
 		RequestContext.getCurrentInstance().reset("test:painel");
-		//return "views/login.xhtml";
+		// return "views/login.xhtml";
 		return null;
 	}
 
