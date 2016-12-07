@@ -12,8 +12,7 @@
 </h:head>
 
 <h:body>
-
-	<!-- Menu -->
+<!-- Menu -->
 	<p:layout style="min-width:300px;min-height:110px;">
 		<p:layoutUnit position="center">
 			<h1 style="color: #63b8ff">SportFAP</h1>
@@ -32,28 +31,52 @@
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
 		</f:facet>
 		<f:facet name="right">
-			<p:commandButton value="Logof" style="color:#63b8ff"/>
+			<p:commandButton value="Logof" style="color:#63b8ff" />
 		</f:facet>
 	</p:toolbar>
 	<!-- Menu -->
 	<!-- conteudo -->
 	<div class="ContentSideSections" align="center">
 		<p:panel id="painel" style="min-width:300px;min-height:350px;">
-			<h2 style="color:#63b8ff"  >Sportfap 2016 - Times</h2>
+			<h2 style="color: #63b8ff">Sportfap 2016 - Times</h2>
 			<h:form id="cadastrarTimeForm">
 				<p:growl id="growl" showDetail="true" sticky="true" />
 
-				<p:panel id="panel" header="Cadastrar De Eventos">
+				<p:panel id="panel" header="Cadastrar Eventos">
 
 					<h:panelGrid columns="2" cellpadding="5">
 						<p:outputLabel for="nome" value="Nome: " />
 						<p:inputText id="nome" value="#{eventoController.evento.usuario}" />
+
 						<p:outputLabel id="tipo_o" value="Tipo" />
 						<p:inputText id="tipo" value="#{eventoController.evento.tipo}" />
-						<p:outputLabel id="fone_capitao_o" value="Fone Capitão" />
-						<p:inputText id="fone_capitao"
-							value="#{eventoController.evento.regulamento}"
-							 />
+
+						
+						<p:outputLabel for="phoneWithExt" value="Fone Capitão" />
+						<p:inputMask id="phoneWithExt" value="#{eventoController.evento.regulamento}"
+							mask="(99) 9-99999999" />
+						<p:outputLabel for="date" value="Date: " />
+						<p:inputMask id="date" value="#{eventoController.evento.data}"
+							mask="99/99/9999" />
+						<h:form>
+							<h:panelGrid columns="3" cellpadding="5">
+								<h:outputLabel for="menu" value="Times:" />
+								<p:selectCheckboxMenu id="menu"
+									value="#{timeController.time.nome}" label="Times" filter="true"
+									filterMatchMode="startsWith" panelStyle="width:250px">
+									<f:selectItems value="#{timeController.time.nome}" />
+								</p:selectCheckboxMenu>
+								<p:commandLink value="Selecionar" update="display" />
+							</h:panelGrid>
+
+							<p:outputPanel id="display"
+								style="width:250px;padding-left:5px;margin-top:10px">
+								<p:dataList value="#{timeController.time.nome}" var="time"
+									emptyMessage="Não ha times selecionados">
+            #{time}
+        </p:dataList>
+							</p:outputPanel>
+						</h:form>
 					</h:panelGrid>
 
 					<p:commandButton value="Salvar" update="panel"
