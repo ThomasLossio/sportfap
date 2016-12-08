@@ -34,7 +34,7 @@
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
 		</f:facet>
 		<f:facet name="right">
-			<p:commandButton value="Logof" style="color:#63b8ff" />
+			<p:commandButton value="Logoff" style="color:#63b8ff" action="#{homeController.irPaginaHome()}" />
 		</f:facet>
 	</p:toolbar>
 	<!-- Menu -->
@@ -93,7 +93,11 @@
 			<!-- fim do cadastro de jogadores -->
 
 			<!-- visualizar lista de jogadores-->
+<<<<<<< HEAD
 			<p:dataList value="#{jogadorController.listaJogadoresTmp}" var="jogador"
+=======
+			<p:dataList value="#{jogadorController.jogadores}" var="jogador"
+>>>>>>> branch 'master' of https://github.com/ThomasNeo/sportfap.git
 				type="ordered">
 				<f:facet name="header">
 					<p:outputLabel id="tituloJog" value="Jogadores"

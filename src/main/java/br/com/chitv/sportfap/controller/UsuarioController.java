@@ -111,7 +111,7 @@ public class UsuarioController implements Serializable {
 		if (cert) {
 			return "/secured/views/admin/index.jsf?faces-redirect=true";
 		} else {
-			addMensagem("ERRO: Usu√°rio ou Senha Incorreta");
+			addMensagem("ERRO: Usu·rio ou Senha Incorreta");
 			return null;
 		}
 	}
