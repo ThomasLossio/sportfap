@@ -26,7 +26,7 @@ public class JogadorController implements Serializable {
 
 	private Jogador jogador;
 
-	private List<Jogador> listaJogadores;
+	private static List<Jogador> listaJogadores;
 
 	private List<Jogador> listaJogadoresTmp = new ArrayList<Jogador>();
 	
@@ -43,6 +43,7 @@ public class JogadorController implements Serializable {
 
 	@PostConstruct
 	public void init() {
+		this.listaJogadores = jogadorDao.listaJogadores();	
 		this.jogador = new Jogador();
 	}
 
@@ -85,12 +86,13 @@ public class JogadorController implements Serializable {
 
 	public String salvar() {
 		this.jogadorDao.salvar(this.jogador);
-		this.listaJogadores = jogadorDao.listaJogadores();		
 		this.jogador = new Jogador();
+		this.listaJogadores = jogadorDao.listaJogadores();		
+		
 		this.listaJogadoresTmp.add(this.jogador);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Jogador Cadastrado Com Sucesso!"));
 		 RequestContext.getCurrentInstance().reset("cadastrarTimeForm:panel");
-		 return null;
+		 return "cadastrar?faces-redirect=true";
 	}
 
 	public String voltar() {

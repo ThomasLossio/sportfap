@@ -93,12 +93,7 @@
 			<!-- fim do cadastro de jogadores -->
 
 			<!-- visualizar lista de jogadores-->
-<<<<<<< HEAD
-			<p:dataList value="#{jogadorController.listaJogadoresTmp}" var="jogador"
-=======
-			<p:dataList value="#{jogadorController.jogadores}" var="jogador"
->>>>>>> branch 'master' of https://github.com/ThomasNeo/sportfap.git
-				type="ordered">
+			<p:dataList value="#{jogadorController.listaJogadores}" var="jogador" type="ordered" emptyMessage="Nenhum Registro Encontrado">
 				<f:facet name="header">
 					<p:outputLabel id="tituloJog" value="Jogadores"
 						style="color:#63b8ff" />
@@ -107,8 +102,7 @@
          
 			</p:dataList>
 
-			<p:dataList value="#{timeController.listaTimes}" var="time"
-				type="ordered">
+			<p:dataList value="#{timeController.listaTimes}" var="time" type="ordered" emptyMessage="Nenhum Registro Encontrado">
 				<f:facet name="headerss">
            Times
            </f:facet>
