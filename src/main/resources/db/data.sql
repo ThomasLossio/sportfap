@@ -1,6 +1,7 @@
 /* 
  * Obs.: password '123190540' = $2a$10$5R/vxO9U5x.UW5WLZIDoFu0RnD9PfSY64j486PaULXq.oUeRbXuTm
  */
+
 INSERT INTO sportfap.JOGADOR(name, numero, semestre, time)
     VALUES ('Ismael', '14','6}', 'piratas');
 

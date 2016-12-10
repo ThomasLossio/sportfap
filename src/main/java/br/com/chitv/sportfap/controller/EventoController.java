@@ -3,6 +3,13 @@ package br.com.chitv.sportfap.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -10,11 +17,13 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
+import org.primefaces.model.UploadedFile;
 
 import org.primefaces.context.RequestContext;
 
 
 import br.com.chitv.sportfap.dao.EventoDao;
+import br.com.chitv.sportfap.model.Arquivo;
 import br.com.chitv.sportfap.model.Evento;
 
 
@@ -75,6 +84,7 @@ public class EventoController implements Serializable {
 	}
 
 	public String salvar() {
+		this.evento.setArquivo(new Arquivo(this.file != null ? this.file.getContents() : null));
 		this.eventoDao.salvar(this.evento);
 		this.eventos = eventoDao.listaEventos();
 		this.evento = new Evento();
@@ -102,6 +112,23 @@ public class EventoController implements Serializable {
 	public void setTime(Evento evento) {
 		this.evento = evento;
 	}
+	
+	private UploadedFile file;
+    
+    public UploadedFile getFile() {
+        return file;
+    }
+ 
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+     
+    public void upload() {
+        if(file != null) {
+            FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+    }
 	
 
 }

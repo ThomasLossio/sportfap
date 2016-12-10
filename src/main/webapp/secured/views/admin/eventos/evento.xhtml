@@ -24,14 +24,15 @@
 				action="#{homeAdminController.irPaginaHomeAdmin()}" />
 			<p:commandButton value="Eventos" style="color:#63b8ff"
 				action="#{homeAdminController.irPaginaEventosAdmin()}" />
-				<p:commandButton value="Time" style="color:#63b8ff"
+			<p:commandButton value="Time" style="color:#63b8ff"
 				action="#{homeAdminController.irPaginaTimeAdmin()}" />
 			<p:commandButton value="Sobre" style="color:#63b8ff"
 				actionListener="#{productBean.setDialogPage('sobre')}"
 				oncomplete="PF('dialogWidget1').show()" update="dialogSobre" />
 		</f:facet>
 		<f:facet name="right">
-			<p:commandButton value="Logoff" style="color:#63b8ff" action="#{homeController.irPaginaHome()}"/>
+			<p:commandButton value="Logoff" style="color:#63b8ff"
+				action="#{homeController.irPaginaHome()}" />
 		</f:facet>
 	</p:toolbar>
 	<!-- Menu -->
@@ -54,10 +55,20 @@
 
 
 						<p:outputLabel fid="regulamento_o" value="Regulameto" />
-						<p:inputTextarea rows="5" cols="10" completeMethod="#{eventoController.evento.regulamento}" queryDelay="750" minQueryLength="4" />
+						<p:inputTextarea rows="5" cols="10"
+							completeMethod="#{eventoController.evento.regulamento}"
+							queryDelay="750" minQueryLength="4" />
 						<p:outputLabel for="date" value="Date: " />
 						<p:inputMask id="date" value="#{eventoController.evento.data}"
 							mask="99/99/9999" />
+
+						<p:fileUpload value="#{userController.file}" mode="simple"
+							skinSimple="true" fileLimit="10000"
+							fileLimitMessage="Imagem gigante"
+							allowTypes="/(\.|\/)(gif|jpe?g|png)$/" update="image" />
+
+						<p:graphicImage id="image" value="#{userController.file}"
+							rendered="#{userController.file != null} " />
 
 					</h:panelGrid>
 					<h:form>

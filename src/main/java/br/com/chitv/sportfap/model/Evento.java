@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -41,6 +44,9 @@ public class Evento implements Serializable{
     
     @Column(name = "REGULAMENTO", length = 1500, nullable = false)
     private String regulamento;
+    
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Arquivo arquivo;
     
 	public Date getData() {
 		return data;
@@ -96,6 +102,14 @@ public class Evento implements Serializable{
 
 	public void setTimes(List<Time> times) {
 		this.times = times;
+	}
+	
+	public Arquivo getArquivo() {
+		return arquivo;
+	}
+
+	public void setArquivo(Arquivo arquivo) {
+		this.arquivo = arquivo;
 	}
 
 	@ManyToOne
